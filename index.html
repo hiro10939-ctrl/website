@@ -1,0 +1,1761 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>菱谷ひろ子 | 恋愛/ライフコーチ × パーソナルカラーアナリスト</title>
+  <meta name="description" content="本来のあなたらしさを咲かせる、内なるジャーニーへ。恋愛/ライフコーチ 菱谷ひろ子のオフィシャルサイト。">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    /* =========================================
+       CSS Variables & Base Reset
+    ========================================= */
+    :root {
+      --color-primary: #e0b4b4;
+      /* 優しく淡いくすみピンク */
+      --color-primary-dark: #c48b8b;
+      --color-accent: #b56c6c;
+      /* CTA用の目立つアクセントカラー */
+      --color-accent-hover: #9e5b5b;
+      --color-bg-base: #fdfbfaf0;
+      /* 温かみのあるオフホワイト */
+      --color-bg-sub: #faf5f5;
+      /* セクション背景用の極薄いピンク */
+      --color-text-main: #4a4544;
+      /* 柔らかなチャコールグレー */
+      --color-text-light: #7a7373;
+
+      --font-heading: 'Shippori Mincho', serif;
+      --font-body: 'Zen Kaku Gothic New', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--color-text-main);
+      background-color: var(--color-bg-base);
+      line-height: 1.8;
+      letter-spacing: 0.05em;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: opacity 0.3s;
+    }
+
+    a:hover {
+      opacity: 0.8;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    .serif {
+      font-family: var(--font-heading);
+      font-weight: 500;
+    }
+
+    /* =========================================
+       Common Components
+    ========================================= */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 5%;
+    }
+
+    section {
+      padding: 120px 0;
+    }
+
+    .bg-sub {
+      background-color: var(--color-bg-sub);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 60px;
+      color: var(--color-text-main);
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background-color: var(--color-accent);
+      margin: 20px auto 0;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--color-accent);
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .btn-cta {
+      background-color: var(--color-accent);
+      color: #fff;
+      padding: 0 30px;
+      height: 50px;
+      border-radius: 25px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(181, 108, 108, 0.3);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-cta:hover {
+      background-color: var(--color-accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(181, 108, 108, 0.4);
+      opacity: 1;
+    }
+
+    /* =========================================
+       Header (Sticky Frost Glass)
+    ========================================= */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 20px 0;
+      transition: all 0.4s ease;
+      background: transparent;
+    }
+
+    header.scrolled {
+      background: rgba(253, 251, 250, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 12px 0;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      padding: 0 3%;
+    }
+
+    .logo {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      flex-shrink: 0;
+      margin-right: auto;
+    }
+
+    /* --- Navigation Menu --- */
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-menu a {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--color-text-main);
+      padding: 6px 14px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-menu a:hover {
+      background: rgba(224, 180, 180, 0.2);
+      color: var(--color-accent);
+      opacity: 1;
+    }
+
+    /* PCでは非表示、モバイルハンバーガー内でのみ表示 */
+    .mobile-only {
+      display: none;
+    }
+
+    /* --- Hamburger Button (hidden on desktop) --- */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 1100;
+      position: relative;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--color-text-main);
+      border-radius: 2px;
+      transition: all 0.35s ease;
+    }
+
+    .hamburger span:nth-child(1) {
+      margin-bottom: 6px;
+    }
+
+    .hamburger span:nth-child(3) {
+      margin-top: 6px;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* --- Mobile Menu Overlay --- */
+    .mobile-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 990;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .mobile-overlay.active {
+      opacity: 1;
+    }
+
+    /* --- Facebook link style --- */
+    .social-links {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: var(--color-accent);
+      color: #fff;
+      opacity: 1;
+      transform: translateY(-2px);
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .header-cta {
+      height: 44px;
+      padding: 0 20px;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    /* =========================================
+       1. Hero (第一印象)
+    ========================================= */
+    .hero {
+      height: 100vh;
+      min-height: 600px;
+      background: linear-gradient(rgba(253, 251, 250, 0.4), rgba(253, 251, 250, 0.8)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 5%;
+    }
+
+    .hero-content {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 60px 50px;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .hero-subtitle {
+      font-size: 0.95rem;
+      color: var(--color-primary-dark);
+      margin-bottom: 20px;
+      letter-spacing: 0.1em;
+    }
+
+    .hero-title {
+      font-size: 3.2rem;
+      color: var(--color-text-main);
+      margin-bottom: 10px;
+      letter-spacing: 0.05em;
+    }
+
+    /* =========================================
+       2. 共感 (悩みへの寄り添い)
+    ========================================= */
+    .empathy-box {
+      background: #fff;
+      padding: 60px 50px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .empathy-list {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .empathy-list li {
+      padding-left: 40px;
+      position: relative;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--color-text-main);
+    }
+
+    .empathy-list li::before {
+      content: '\f00c';
+      font-family: 'FontAwesome';
+      position: absolute;
+      left: 0;
+      top: 2px;
+      color: var(--color-primary-dark);
+      font-size: 1.4rem;
+    }
+
+    /* =========================================
+       3. 解決策 (Service / 効果・流れ・料金)
+    ========================================= */
+    .service-block {
+      margin-bottom: 140px;
+    }
+
+    .service-block:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 効果リスト (スッキリ化) */
+    .effects-list {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .effect-item {
+      display: flex;
+      gap: 30px;
+      align-items: flex-start;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      padding: 30px 10px;
+    }
+
+    .effect-item:first-child {
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .effect-item:last-child {
+      border-bottom: none;
+    }
+
+    .effect-num {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      color: var(--color-primary-dark);
+      line-height: 1;
+      opacity: 0.6;
+      font-style: italic;
+      min-width: 45px;
+      padding-top: 2px;
+    }
+
+    .effect-content h3 {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+      color: var(--color-text-main);
+    }
+
+    .effect-content p {
+      font-size: 1rem;
+      color: var(--color-text-light);
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    /* セッションの流れ */
+    .flow-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .flow-step {
+      display: flex;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
+    }
+
+    .flow-time {
+      background: var(--color-primary);
+      color: #fff;
+      padding: 30px 20px;
+      width: 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .flow-time .title {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+    }
+
+    .flow-time .time {
+      font-size: 0.85rem;
+      margin-top: 5px;
+      opacity: 0.9;
+    }
+
+    .flow-content {
+      padding: 30px;
+      flex: 1;
+    }
+
+    .flow-content h4 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: var(--color-accent);
+    }
+
+    .flow-content p {
+      font-size: 0.95rem;
+    }
+
+    /* プラン・料金 (3列横並び) */
+    .pricing-wrap {
+      background: #fff;
+      border-radius: 20px;
+      padding: 60px 50px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    }
+
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      /* 確実に3列にする設定 */
+      gap: 20px;
+      margin-bottom: 50px;
+    }
+
+    .price-card {
+      border: 1px solid #eee;
+      border-radius: 12px;
+      padding: 30px 20px;
+      text-align: center;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .price-card.recommend {
+      border: 2px solid var(--color-accent);
+      background-color: var(--color-bg-sub);
+      transform: scale(1.03);
+      /* 推奨プランを少し大きく見せる */
+      box-shadow: 0 10px 25px rgba(181, 108, 108, 0.05);
+      z-index: 1;
+    }
+
+    .price-card-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+      border-bottom: 1px dashed #ddd;
+      padding-bottom: 15px;
+    }
+
+    .price-card-desc {
+      font-size: 0.85rem;
+      color: var(--color-text-light);
+      margin-bottom: 25px;
+    }
+
+    .price-card-bottom {
+      margin-top: auto;
+      /* 高さが違っても価格部分を下揃えにする */
+    }
+
+    .price-normal {
+      font-size: 0.95rem;
+      color: var(--color-text-light);
+      text-decoration: line-through;
+      margin-bottom: 5px;
+    }
+
+    .price-monitor {
+      color: var(--color-accent);
+      font-size: 1.7rem;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .pricing-note {
+      background: var(--color-bg-sub);
+      padding: 40px;
+      border-radius: 12px;
+    }
+
+    .pricing-note h4 {
+      font-size: 1.2rem;
+      color: var(--color-accent);
+      margin-bottom: 15px;
+    }
+
+    /* =========================================
+       4. 証拠 (Voice)
+    ======================================== */
+    .voice-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .voice-card {
+      background: #fff;
+      padding: 40px;
+      border-radius: 16px;
+      position: relative;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.02);
+    }
+
+    .voice-card::before {
+      content: '\f10d';
+      font-family: 'FontAwesome';
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      color: var(--color-primary);
+      opacity: 0.2;
+      font-size: 2.5rem;
+    }
+
+    .voice-text {
+      font-size: 0.95rem;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 20px;
+    }
+
+    .voice-label {
+      display: inline-block;
+      background: var(--color-bg-sub);
+      color: var(--color-accent);
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: bold;
+    }
+
+    /* =========================================
+       5. プロフィール (Profile)
+    ========================================= */
+    .profile-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 50px;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+
+    .profile-image {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .profile-image img {
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+    }
+
+    .profile-text {
+      flex: 1.2;
+      min-width: 300px;
+    }
+
+    .profile-text h3 {
+      font-size: 2.2rem;
+      margin-bottom: 5px;
+    }
+
+    .profile-text .role {
+      color: var(--color-primary-dark);
+      font-weight: 500;
+      margin-bottom: 25px;
+    }
+
+    .profile-list li {
+      margin-bottom: 10px;
+      padding-left: 25px;
+      position: relative;
+      font-size: 0.95rem;
+    }
+
+    .profile-list li i {
+      position: absolute;
+      left: 0;
+      top: 6px;
+      color: var(--color-primary-dark);
+    }
+
+    .story-box {
+      background: #fff;
+      padding: 60px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    }
+
+    .story-box h3 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.6rem;
+      color: var(--color-accent);
+    }
+
+    .story-box p {
+      margin-bottom: 1.5rem;
+    }
+
+    .story-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* =========================================
+       6. 行動 (CTA / Contact)
+    ========================================= */
+    .contact-section {
+      background: linear-gradient(135deg, var(--color-bg-sub) 0%, var(--color-bg-base) 100%);
+    }
+
+    .form-wrapper {
+      max-width: 700px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 50px;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.03);
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .required {
+      background: var(--color-accent);
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #e2dddc;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 16px;
+      transition: all 0.3s;
+      background-color: var(--color-bg-base);
+      min-height: 50px;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--color-accent);
+      background-color: #fff;
+      box-shadow: 0 0 0 3px rgba(181, 108, 108, 0.15);
+    }
+
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .btn-submit {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+
+    /* =========================================
+       Footer
+    ========================================= */
+    footer {
+      background: var(--color-text-main);
+      color: rgba(255, 255, 255, 0.7);
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* =========================================
+       Story Box Read More (Gradient Fade)
+    ========================================= */
+    .story-content {
+      position: relative;
+    }
+
+    .story-hidden {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.6s ease;
+    }
+
+    .story-hidden.expanded {
+      max-height: 2000px;
+    }
+
+    .story-fade {
+      position: relative;
+      pointer-events: none;
+    }
+
+    .story-fade::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+      transition: opacity 0.4s ease;
+    }
+
+    .story-fade.no-fade::after {
+      opacity: 0;
+    }
+
+    .story-toggle {
+      display: block;
+      margin: 20px auto 0;
+      background: none;
+      border: 2px solid var(--color-accent);
+      color: var(--color-accent);
+      padding: 10px 30px;
+      border-radius: 25px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: var(--font-body);
+    }
+
+    .story-toggle:hover {
+      background: var(--color-accent);
+      color: #fff;
+    }
+
+    /* =========================================
+       Privacy Policy Modal
+    ========================================= */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-box {
+      background: #fff;
+      border-radius: 20px;
+      max-width: 700px;
+      width: 100%;
+      max-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      animation: modalFadeIn 0.3s ease;
+    }
+
+    @keyframes modalFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 30px;
+      border-bottom: 1px solid #eee;
+      flex-shrink: 0;
+    }
+
+    .modal-header h3 {
+      font-size: 1.3rem;
+      color: var(--color-text-main);
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--color-text-light);
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all 0.3s;
+    }
+
+    .modal-close:hover {
+      background: var(--color-bg-sub);
+      color: var(--color-text-main);
+    }
+
+    .modal-body {
+      padding: 30px;
+      overflow-y: auto;
+      font-size: 0.92rem;
+      line-height: 1.9;
+    }
+
+    .modal-body h4 {
+      font-size: 1.05rem;
+      margin: 25px 0 10px;
+      color: var(--color-accent);
+    }
+
+    .modal-body h4:first-child {
+      margin-top: 0;
+    }
+
+    .modal-body p {
+      margin-bottom: 10px;
+    }
+
+    /* Privacy checkbox */
+    .privacy-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 20px 0 10px;
+      font-size: 0.92rem;
+    }
+
+    .privacy-group input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--color-accent);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .privacy-group label {
+      cursor: pointer;
+      margin-bottom: 0;
+    }
+
+    .privacy-link {
+      color: var(--color-accent);
+      text-decoration: underline;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .privacy-link:hover {
+      opacity: 0.8;
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .btn-submit:disabled:hover {
+      opacity: 0.5;
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* =========================================
+       Responsive Adjustments
+    ========================================= */
+    @media (max-width: 768px) {
+      .hero-content {
+        padding: 40px 30px;
+      }
+
+      .hero-title {
+        font-size: 2.2rem;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 40px;
+      }
+
+      .empathy-box {
+        padding: 40px 30px;
+      }
+
+      .effect-item {
+        flex-direction: column;
+        gap: 10px;
+        padding: 25px 0;
+      }
+
+      .effect-num {
+        font-size: 2rem;
+      }
+
+      .pricing-wrap {
+        padding: 40px 20px;
+      }
+
+      /* スマホ閲覧時は文字が小さくなりすぎるため、自動で縦並びになります */
+      .price-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .price-card.recommend {
+        transform: scale(1);
+      }
+
+      .flow-step {
+        flex-direction: column;
+      }
+
+      .flow-time {
+        width: 100%;
+        padding: 15px;
+        flex-direction: row;
+        gap: 10px;
+      }
+
+      .flow-time .time {
+        margin-top: 0;
+      }
+
+      .story-box,
+      .form-wrapper {
+        padding: 30px 20px;
+      }
+
+      /* === ヘッダー固定（スマホ対応） === */
+      header {
+        background: rgba(253, 251, 250, 0.95);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        padding: 10px 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      /* === ハンバーガーメニュー（スマホ） === */
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -280px;
+        width: 280px;
+        height: 100vh;
+        background: rgba(253, 251, 250, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 90px 30px 40px;
+        gap: 0;
+        z-index: 1050;
+        transition: right 0.35s ease;
+        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
+      }
+
+      .nav-menu.active {
+        right: 0;
+      }
+
+      .nav-menu a {
+        font-size: 1rem;
+        padding: 16px 20px;
+        border-radius: 12px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        text-align: left;
+      }
+
+      .nav-menu a:last-child {
+        border-bottom: none;
+      }
+
+      .mobile-only {
+        display: block;
+      }
+
+      .mobile-overlay {
+        display: block;
+        pointer-events: none;
+      }
+
+      .mobile-overlay.active {
+        pointer-events: auto;
+      }
+
+      .header-cta {
+        display: none;
+      }
+
+      body.menu-open {
+        overflow: hidden;
+      }
+
+      /* === 泣き別れ防止 (モバイル専用) === */
+      /* 全テキスト要素を画面幅で自然に折り返す */
+      .empathy-list li,
+      .effect-content h3,
+      .effect-content p,
+      .story-box p,
+      .voice-text,
+      .pricing-note p,
+      .profile-list li,
+      .price-card-desc,
+      .flow-content p,
+      .flow-content h4 {
+        word-break: normal;
+        overflow-wrap: anywhere;
+      }
+
+      /* PC向けの <br> をスマホでは非表示にして自然な折り返しにする */
+      .story-box p br,
+      .hero-content p br,
+      .profile-list li br,
+      .price-card-desc br {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <script>
+    // グローバル関数: ナビリンクのスムーススクロール（CDN不要）
+    function navigateTo(targetId) {
+      // メニューを閉じる
+      var h = document.getElementById('hamburger');
+      var n = document.getElementById('navMenu');
+      var o = document.getElementById('mobileOverlay');
+      if (h) h.classList.remove('active');
+      if (n) n.classList.remove('active');
+      if (o) o.classList.remove('active');
+      document.body.classList.remove('menu-open');
+
+      // 遅延してスクロール
+      setTimeout(function () {
+        if (targetId === '#') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          return;
+        }
+        var el = document.querySelector(targetId);
+        if (el) {
+          var header = document.getElementById('header');
+          var offset = header ? header.offsetHeight : 0;
+          var pos = el.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top: pos, behavior: 'smooth' });
+        }
+      }, 150);
+    }
+  </script>
+
+  <header id="header">
+    <div class="container header-inner">
+      <div class="logo">Hishiya Hiroko</div>
+      <nav class="nav-menu" id="navMenu">
+        <a href="#" onclick="navigateTo('#');return false;">ホーム</a>
+        <a href="#profile" onclick="navigateTo('#profile');return false;">プロフィール</a>
+        <a href="#service" onclick="navigateTo('#service');return false;">コーチングについて</a>
+        <a href="#flow" onclick="navigateTo('#flow');return false;">セッションの流れ</a>
+        <a href="#pricing" onclick="navigateTo('#pricing');return false;">料金</a>
+        <a href="#voice" onclick="navigateTo('#voice');return false;">お客様の声</a>
+        <a href="#contact" class="mobile-only" onclick="navigateTo('#contact');return false;">予約・相談</a>
+      </nav>
+      <a href="#contact" class="btn-cta header-cta">予約・相談</a>
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content" data-aos="fade-up" data-aos-duration="1500">
+        <p class="hero-subtitle">恋愛/ライフコーチ × パーソナルカラーアナリスト</p>
+        <h1 class="hero-title serif">菱谷 ひろ子</h1>
+        <p>本来のあなたらしさを咲かせる、<br>内なるジャーニーへ。</p>
+      </div>
+    </section>
+
+    <section id="empathy" class="bg-sub">
+      <div class="container">
+        <div class="section-subtitle" data-aos="fade-up">For You</div>
+        <h2 class="section-title serif" data-aos="fade-up" data-aos-delay="100">こんなお悩みはありませんか？</h2>
+
+        <div style="text-align: center; margin-bottom: 20px; font-weight: 500;" data-aos="fade-up" data-aos-delay="150">
+          <p>周りには相談しづらい、こんな思いを抱え込んでいませんか？</p>
+        </div>
+
+        <div class="empathy-box" data-aos="fade-up" data-aos-delay="200">
+          <ul class="empathy-list">
+            <li>嫌われるのが怖くて、無意識に相手の顔色を窺い「都合の良い自分」を演じてしまう。好かれようと頑張るほど本来の自分から遠ざかり、誰かと一緒にいることに疲れてしまう。</li>
+            <li>仕事もプライベートも「一人で頑張ること」が当たり前になりすぎて、誰かに甘えたり、弱い自分を見せたりする方法が分からない。心の中では寄り添ってほしいのに、無意識に強がってしまう。</li>
+            <li>「完璧で愛される自分」でいなければ価値がないと思い込み、常に自分にダメ出しをしてしまう。他人の評価や世間の「普通」に振り回され、自分が本当はどう生きたいのかが見えなくなっている。</li>
+            <li>もうあんな風に傷つきたくない。本気で人を好きになって失うのが怖くて、心のどこかでブレーキをかけている。一歩踏み出したい気持ちと、傷つくのが怖い気持ちの間で立ち往生している。</li>
+          </ul>
+
+          <div
+            style="margin-top: 30px; padding-top: 20px; border-top: 1px dashed rgba(224, 180, 180, 0.5); text-align: center;">
+            <p style="font-weight: 500; color: var(--color-accent); margin-bottom: 5px;">でも、どうかご安心ください。</p>
+            <p>その悩みは、あなた自身を深く知り、<br>本当の幸せへと向かうための「大切な入り口」です。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="profile">
+      <div class="container">
+        <div class="section-subtitle" data-aos="fade-up">About Me</div>
+        <h2 class="section-title serif" data-aos="fade-up">プロフィール</h2>
+
+        <div class="profile-wrap" data-aos="fade-up" data-aos-delay="100">
+          <div class="profile-image">
+            <img src="profile.jpg" alt="菱谷ひろ子 プロフィール写真">
+          </div>
+          <div class="profile-text">
+            <h3 class="serif">菱谷 ひろ子</h3>
+            <p class="role">恋愛・ライフコーチ / パーソナルカラーアナリスト</p>
+            <ul class="profile-list">
+              <li><i class="fa-solid fa-building"></i> 2000年より自動車部品メーカー勤務。<br>現在、人事総務部として採用・教育を担当。</li>
+              <li><i class="fa-solid fa-child-reaching"></i> 2児の母（7歳＆５歳の男の子）</li>
+              <li><i class="fa-solid fa-location-dot"></i> 愛知県西尾市在住</li>
+              <li style="margin-top: 15px;"><i class="fa-regular fa-heart"></i> <strong>好きなこと：</strong> 読書、ヨガ、焚き火、川遊び、旅行
+              </li>
+              <li><i class="fa-regular fa-star"></i> <strong>叶えたいこと：</strong> 「百花繚乱な世界」<br>〜それぞれの個性が調和しながら美しく咲き誇っている世界〜
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="story-box" data-aos="fade-up" data-aos-delay="200">
+          <h3 class="serif">私の想い</h3>
+          <div class="story-content">
+            <!-- 常に表示される部分 -->
+            <p>
+              私が恋愛・ライフコーチとして歩み始めたのは、恋愛で深く傷ついた経験があったからです。<br>何度も同じことで悩み、自分を責め、誰かを信じることさえ怖くなっていたあの頃——<br>そんな私を救ってくれたのは、アドバイスをくれた人ではなく、ただそばにいて、静かに話を聴いてくれた友人の存在でした。
+            </p>
+            <p>言葉ではなく、さりげない気遣いや、そっと寄り添う温かさ。その優しさが、私の心の傷を静かに癒してくれたのです。<br>この体験こそが、今の私の原点になっています。</p>
+
+            <!-- グラデーションフェード + 折りたたみ部分 -->
+            <div class="story-fade" id="storyFade">
+              <div class="story-hidden" id="storyHidden">
+                <p>恋愛・ライフコーチとして日々感じているのは、恋愛の悩みは <strong>“ほんの入口”</strong>
+                  にすぎないということ。<br>そこから自分自身と深く向き合い、人生全体のテーマへと広がっていくことがあります。<br>コーチの問いかけは、自分ひとりでは気づけなかった視点、新たな選択肢、そして未来の可能性を照らしてくれます。
+                </p>
+                <p>
+                  「なんだか自分と向き合うのが怖いな」「コーチングって、よく分からないな」<br>そんな風に感じている方こそ、ぜひ一度お話してみませんか？<br>体験セッションでは、安心してコーチングに触れていただけます。
+                </p>
+                <p>
+                  3か月後、半年後、1年後——あなたはどんな自分になっていたいですか？その時、見えている景色は、どんなものでしょうか？<br>今はまだ具体的にイメージできなくても、大丈夫です。<br>まずは、あなたのペースで一歩を踏み出してみてください。
+                </p>
+                <p>
+                  必要であれば、私はそっと背中を押しますし、「せーの♪」と思い切ってジャンプすることだってできます。<br>どんな感情があっても大丈夫。「こんなこと言ってもいいのかな」と思うことも、全部吐き出してOKです。<br>今のあなたのままで、何も問題ありません。<br>人はもともと創造力と才知にあふれ、欠けることのない存在だと信じています。
+                </p>
+                <p
+                  style="text-align: center; font-weight: 500; color: var(--color-accent); margin-top: 40px; font-size: 1.1rem; font-family: var(--font-heading);">
+                  どんなときも、あなたと共にいます。<br>あなたと出会えたことに、心から感謝しています♡<br>最後まで読んでくださり、本当にありがとうございました。
+                </p>
+              </div>
+            </div>
+            <button class="story-toggle" id="storyToggle">続きを読む</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="service">
+      <div class="container">
+
+        <div class="service-block">
+          <div class="section-subtitle" data-aos="fade-up">Effects</div>
+          <h2 class="section-title serif" data-aos="fade-up">コーチングを受けると</h2>
+
+          <div class="effects-list">
+            <div class="effect-item" data-aos="fade-up">
+              <div class="effect-num">01</div>
+              <div class="effect-content">
+                <h3 class="serif">思考がクリアになる</h3>
+                <p>モヤモヤが整理され、「本当はどうしたいのか」が見えてくる。</p>
+              </div>
+            </div>
+            <div class="effect-item" data-aos="fade-up">
+              <div class="effect-num">02</div>
+              <div class="effect-content">
+                <h3 class="serif">行動にブレーキをかけている原因がわかる</h3>
+                <p>無意識のストッパーを一緒に見つけ、前に進む一歩が踏み出せる。</p>
+              </div>
+            </div>
+            <div class="effect-item" data-aos="fade-up">
+              <div class="effect-num">03</div>
+              <div class="effect-content">
+                <h3 class="serif">自分の本音に気づけるようになる</h3>
+                <p>「本当はこうしたい」という想いを思い出し、自分軸で選べるようになる。</p>
+              </div>
+            </div>
+            <div class="effect-item" data-aos="fade-up">
+              <div class="effect-num">04</div>
+              <div class="effect-content">
+                <h3 class="serif">感情を味方にできるようになる</h3>
+                <p>振り回されるのではなく、「感情＝大事なサイン」として活かせるようになる。</p>
+              </div>
+            </div>
+            <div class="effect-item" data-aos="fade-up">
+              <div class="effect-num">05</div>
+              <div class="effect-content">
+                <h3 class="serif">ありのままの自分にOKが出せるようになる</h3>
+                <p>「今のままで大丈夫」という安心感から、前向きな自分へ。</p>
+              </div>
+            </div>
+            <div class="effect-item" data-aos="fade-up">
+              <div class="effect-num">06</div>
+              <div class="effect-content">
+                <h3 class="serif">人との関係が自然にラクになる</h3>
+                <p>我慢や無理を手放し、心に余裕をもったコミュニケーションができるようになる。</p>
+              </div>
+            </div>
+            <div class="effect-item" data-aos="fade-up">
+              <div class="effect-num">07</div>
+              <div class="effect-content">
+                <h3 class="serif">未来へのワクワクが広がる</h3>
+                <p>「こうなったらいいな」が現実に近づき、可能性を信じられるようになる。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-block" id="flow">
+          <div class="section-subtitle" data-aos="fade-up">Flow</div>
+          <h2 class="section-title serif" data-aos="fade-up">セッションの流れ</h2>
+          <div class="flow-steps">
+            <div class="flow-step" data-aos="fade-up" data-aos-delay="100">
+              <div class="flow-time">
+                <span class="title">無料体験</span>
+                <span class="time">(60分)</span>
+              </div>
+              <div class="flow-content">
+                <h4>コーチとの相性も大切です</h4>
+                <p>Co-Activeコーチングについて、Hiroyaってどんな人？など近況をお聞きしながら、サンプルセッションを20分ほど予定しています。</p>
+              </div>
+            </div>
+            <div class="flow-step" data-aos="fade-up" data-aos-delay="200">
+              <div class="flow-time">
+                <span class="title">導入</span>
+                <span class="time">(120分)</span>
+              </div>
+              <div class="flow-content">
+                <h4>意図的な協働関係の構築</h4>
+                <p>どんな雰囲気で進めたいか、セッションを進める上での価値観共有やルール決めを行います。今後のスケジュールについてもこの時に決めていきます。</p>
+              </div>
+            </div>
+            <div class="flow-step" data-aos="fade-up" data-aos-delay="300">
+              <div class="flow-time">
+                <span class="title">セッション</span>
+                <span class="time">(60分) × 6回〜</span>
+              </div>
+              <div class="flow-content">
+                <h4>あなたの内なるジャーニー</h4>
+                <p>コーチはアドバイスをしたり、答えを差し上げたりはしません。「答えはすべてあなたの中にある」と信じています。人生の脚本家であり主人公はあなたです。</p>
+              </div>
+            </div>
+            <div class="flow-step" data-aos="fade-up" data-aos-delay="400">
+              <div class="flow-time">
+                <span class="title">クロージング</span>
+                <span class="time">(60分)</span>
+              </div>
+              <div class="flow-content">
+                <h4>旅の振り返り</h4>
+                <p>コーチングの旅を振り返って、行動や意識の変化について対話します。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-block" id="pricing">
+          <div class="section-subtitle" data-aos="fade-up">Plan & Price</div>
+          <h2 class="section-title serif" data-aos="fade-up">プラン・料金</h2>
+
+          <div class="pricing-wrap" data-aos="fade-up" data-aos-delay="100">
+            <div class="price-grid">
+
+              <div class="price-card">
+                <div class="price-card-title">単発セッション</div>
+                <div class="price-card-desc">お試しで受けたい方へ<br>(60分)</div>
+                <div class="price-card-bottom">
+                  <div class="price-monitor">15,000円〜</div>
+                </div>
+              </div>
+
+              <div class="price-card recommend">
+                <div class="price-card-title" style="color: var(--color-accent);">6回セッション <span
+                    style="font-size: 0.8rem; font-weight: normal; background: var(--color-accent); color: #fff; padding: 2px 8px; border-radius: 4px; margin-left: 5px;">推奨</span>
+                </div>
+                <div class="price-card-desc">しっかり変化を感じたい方へ<br>(導入120分 ＋ 60分×6回)</div>
+                <div class="price-card-bottom">
+                  <div class="price-monitor">120,000円</div>
+                </div>
+              </div>
+
+              <div class="price-card">
+                <div class="price-card-title">6回以上継続の場合</div>
+                <div class="price-card-desc">さらに深めたい方へ<br>(随時追加OK)</div>
+                <div class="price-card-bottom">
+                  <div class="price-monitor">+15,000円 <span style="font-size: 0.9rem; font-weight: normal;">/回</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="pricing-note">
+              <h4 class="serif">なぜ継続セッションが大切なのか</h4>
+              <p>
+                長年育ててきた思考や感情のくせは、1回ではなかなか変わりません。ジムに一度行っただけでは筋肉がつかないように、コーチングも<strong>“継続”</strong>があってこそ、変化が定着します。少しずつ、やさしく整えていく時間こそが、自分らしい未来への第一歩になります。
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="voice" class="bg-sub">
+      <div class="container">
+        <div class="section-subtitle" data-aos="fade-up">Voices</div>
+        <h2 class="section-title serif" data-aos="fade-up">お客様・仲間の声</h2>
+
+        <div class="voice-grid">
+          <div class="voice-card" data-aos="fade-up" data-aos-delay="100">
+            <span class="voice-label">クライアント様より</span>
+            <p class="voice-text">
+              ひろ子さんのコーチングを通して、自分では向き合っているつもりだった悩みに、実は正面から向き合えていなかったことに気づきました。質問を重ねていただく中で、「本当はこうしたかったんだ」といった感情が自然に掘り起こされ、自分の心の声を初めてしっかり聞けた気がします。どんな感情も否定せず、寄り添って聞いてくださったことがとても安心できて、心が軽くなりました。
+            </p>
+          </div>
+
+          <div class="voice-card" data-aos="fade-up" data-aos-delay="200">
+            <span class="voice-label">クライアント様より</span>
+            <p class="voice-text">
+              元彼が何年も忘れられない・・・というテーマから始めたのですが、1回目のセッションの時にHiroyaさんが一緒に感情を味わって下さって、今までにない感覚を得ました。2回目のセッションまでに元彼の事が全く気にならなくなっていた自分がそこにいて、新しく気になる人まで現われて、本当に驚きです。毎回気づきが多く、質問にはいつもハッとさせられます。
+            </p>
+          </div>
+
+          <div class="voice-card" data-aos="fade-up" data-aos-delay="300">
+            <span class="voice-label">コーチ仲間より</span>
+            <p class="voice-text">ひろ子のコーチングには愛とユーモアもあり、太陽のような明るさがある。時におっさんみたいなたくましさを感じる(笑)
+              そんな人柄から滲み出る関わりに惹かれている。一緒だったらワクワクする世界を見に行ける！</p>
+          </div>
+
+          <div class="voice-card" data-aos="fade-up" data-aos-delay="400">
+            <span class="voice-label">コーチ仲間より</span>
+            <p class="voice-text">
+              周囲を明るく照らす存在でありながら、痛みや困難も知るからこその深い共感力と優しさを持っている。感受性とユーモアに富み、喜びも怒りも悲しみも素直に表現できるからこそ、嘘偽りがなく信頼できる存在。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <div class="section-subtitle" data-aos="fade-up">Contact</div>
+        <h2 class="section-title serif" data-aos="fade-up">ご予約・お問い合わせ</h2>
+        <p style="text-align: center; margin-bottom: 40px;" data-aos="fade-up" data-aos-delay="100">
+          無料体験セッションのお申し込みや、ご質問などお気軽にご連絡ください。</p>
+
+        <div class="form-wrapper" data-aos="fade-up" data-aos-delay="200">
+          <form id="contactForm" action="https://ssgform.com/s/6wojUpOmlKJF" method="POST">
+            <div class="form-group">
+              <label for="name">お名前 <span class="required">必須</span></label>
+              <input type="text" id="name" name="name" class="form-control" required placeholder="例：山田 花子">
+            </div>
+            <div class="form-group">
+              <label for="email">メールアドレス <span class="required">必須</span></label>
+              <input type="email" id="email" name="email" class="form-control" required
+                placeholder="例：info@example.com">
+            </div>
+            <div class="form-group">
+              <label for="type">ご希望のメニュー</label>
+              <select id="type" name="type" class="form-control">
+                <option value="無料体験セッション(60分)">無料体験セッション(60分)</option>
+                <option value="単発セッション(60分)">単発セッション(60分)</option>
+                <option value="継続セッション">継続セッション</option>
+                <option value="その他のお問い合わせ">その他のお問い合わせ</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">メッセージ・ご相談内容 <span class="required">必須</span></label>
+              <textarea id="message" name="message" class="form-control" required
+                placeholder="ご希望の日時（第3希望まで）や、現在気になっていることなどをご自由にご記入ください。"></textarea>
+            </div>
+
+            <div class="privacy-group">
+              <input type="checkbox" id="privacyCheck" required>
+              <label for="privacyCheck"><span class="privacy-link" id="openPrivacy">プライバシーポリシー</span>に同意する <span
+                  class="required">必須</span></label>
+            </div>
+
+            <button type="submit" class="btn-cta btn-submit" id="submitBtn" disabled>送信する</button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Privacy Policy Modal -->
+  <div class="modal-overlay" id="privacyModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="serif">プライバシーポリシー</h3>
+        <button class="modal-close" id="closePrivacy" aria-label="閉じる">&times;</button>
+      </div>
+      <div class="modal-body">
+        <h4>1. 個人情報の取得について</h4>
+        <p>当サイトでは、お問い合わせやご予約の際に、お名前、メールアドレス等の個人情報をお頑きすることがあります。これらの情報は、お問い合わせへの対応およびサービス提供のために利用いたします。</p>
+
+        <h4>2. 個人情報の利用目的</h4>
+        <p>取得した個人情報は、以下の目的で利用いたします。</p>
+        <p>・お問い合わせへの回答・ご連絡<br>・セッションのご予約・スケジュール調整<br>・サービス向上のための参考情報</p>
+
+        <h4>3. 個人情報の第三者提供</h4>
+        <p>取得した個人情報は、法令に基づく場合を除き、ご本人の同意なく第三者に提供することはありません。</p>
+
+        <h4>4. 個人情報の管理</h4>
+        <p>取得した個人情報は、適切な管理のもと、不正アクセス・紛失・漏洩等の防止に努めます。</p>
+
+        <h4>5. 個人情報の開示・訂正・削除</h4>
+        <p>ご本人からの個人情報の開示・訂正・削除のご要望があった場合は、速やかに対応いたします。</p>
+
+        <h4>6. お問い合わせ窓口</h4>
+        <p>個人情報の取り扱いに関するお問い合わせは、当サイトのお問い合わせフォームよりご連絡ください。</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="social-links">
+          <a href="https://www.facebook.com/hiroko.oida.98" target="_blank" rel="noopener noreferrer"
+            aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://www.instagram.com/hiropon_108?igsh=MTNhN2d1bXB3anZncQ==" target="_blank"
+            rel="noopener noreferrer" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+        <p>&copy; 2026 Hishiya Hiroko. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      // 1. AOS
+      try { AOS.init({ duration: 1000, easing: 'ease-out-cubic', once: true, offset: 100 }); } catch (e) { }
+
+      // 2. Sticky header
+      var header = document.getElementById('header');
+      window.addEventListener('scroll', function () {
+        if (header) {
+          if (window.scrollY > 50) { header.classList.add('scrolled'); }
+          else { header.classList.remove('scrolled'); }
+        }
+      });
+
+      // 3. ハンバーガーメニュー
+      var hamburger = document.getElementById('hamburger');
+      var navMenu = document.getElementById('navMenu');
+      var mobileOverlay = document.getElementById('mobileOverlay');
+
+      function closeMenu() {
+        if (hamburger) hamburger.classList.remove('active');
+        if (navMenu) navMenu.classList.remove('active');
+        if (mobileOverlay) mobileOverlay.classList.remove('active');
+        document.body.classList.remove('menu-open');
+      }
+
+      if (hamburger) {
+        hamburger.addEventListener('click', function () {
+          hamburger.classList.toggle('active');
+          if (navMenu) navMenu.classList.toggle('active');
+          if (mobileOverlay) mobileOverlay.classList.toggle('active');
+          document.body.classList.toggle('menu-open');
+        });
+      }
+
+      if (mobileOverlay) {
+        mobileOverlay.addEventListener('click', closeMenu);
+      }
+
+      // 4. スムーススクロール — ナビメニュー専用（イベントデリゲーション）
+      if (navMenu) {
+        navMenu.addEventListener('click', function (e) {
+          var link = e.target.closest('a');
+          if (!link) return;
+          e.preventDefault();
+          e.stopPropagation();
+          var targetId = link.getAttribute('href');
+          closeMenu();
+          setTimeout(function () {
+            if (targetId === '#') {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+              return;
+            }
+            var target = document.querySelector(targetId);
+            if (target) {
+              var headerHeight = document.getElementById('header').offsetHeight || 0;
+              var pos = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+              window.scrollTo({ top: pos, behavior: 'smooth' });
+            }
+          }, 100);
+        });
+      }
+
+      // 4b. CTAボタン等、その他ページ内リンク
+      document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+        if (navMenu && navMenu.contains(anchor)) return;
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          var targetId = this.getAttribute('href');
+          if (targetId === '#') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            return;
+          }
+          var target = document.querySelector(targetId);
+          if (target) {
+            var headerHeight = document.getElementById('header').offsetHeight || 0;
+            var pos = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+            window.scrollTo({ top: pos, behavior: 'smooth' });
+          }
+        });
+      });
+
+      // 5. プライバシーポリシーモーダル
+      var privacyModal = document.getElementById('privacyModal');
+      var openPrivacy = document.getElementById('openPrivacy');
+      var closePrivacyBtn = document.getElementById('closePrivacy');
+
+      if (openPrivacy && privacyModal) {
+        openPrivacy.addEventListener('click', function (e) {
+          e.preventDefault();
+          privacyModal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        });
+      }
+      if (closePrivacyBtn && privacyModal) {
+        closePrivacyBtn.addEventListener('click', function () {
+          privacyModal.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      }
+      if (privacyModal) {
+        privacyModal.addEventListener('click', function (e) {
+          if (e.target === privacyModal) {
+            privacyModal.classList.remove('active');
+            document.body.style.overflow = '';
+          }
+        });
+      }
+
+      // 6. プライバシーチェックボックス
+      var privacyCheck = document.getElementById('privacyCheck');
+      var submitBtn = document.getElementById('submitBtn');
+      var contactForm = document.getElementById('contactForm');
+
+      if (privacyCheck && submitBtn) {
+        privacyCheck.addEventListener('change', function () {
+          submitBtn.disabled = !this.checked;
+        });
+      }
+      if (contactForm && privacyCheck) {
+        contactForm.addEventListener('submit', function (e) {
+          if (!privacyCheck.checked) {
+            e.preventDefault();
+            alert('プライバシーポリシーに同意してください。');
+          }
+        });
+      }
+
+      // 7. 「私の想い」続きを読む
+      var storyToggle = document.getElementById('storyToggle');
+      var storyHidden = document.getElementById('storyHidden');
+      var storyFade = document.getElementById('storyFade');
+      var storyExpanded = false;
+
+      if (storyToggle && storyHidden && storyFade) {
+        storyToggle.addEventListener('click', function () {
+          storyExpanded = !storyExpanded;
+          if (storyExpanded) {
+            storyHidden.classList.add('expanded');
+            storyFade.classList.add('no-fade');
+            storyToggle.textContent = '閉じる';
+          } else {
+            storyHidden.classList.remove('expanded');
+            storyFade.classList.remove('no-fade');
+            storyToggle.textContent = '続きを読む';
+            var storyBox = document.querySelector('.story-box');
+            if (storyBox) {
+              var headerH = document.getElementById('header').offsetHeight || 0;
+              var pos = storyBox.getBoundingClientRect().top + window.pageYOffset - headerH - 20;
+              window.scrollTo({ top: pos, behavior: 'smooth' });
+            }
+          }
+        });
+      }
+
+    });
+  </script>
+</body>
+
+</html>
