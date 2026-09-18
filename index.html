@@ -1,1761 +1,2099 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>菱谷ひろ子 | 恋愛/ライフコーチ × パーソナルカラーアナリスト</title>
-  <meta name="description" content="本来のあなたらしさを咲かせる、内なるジャーニーへ。恋愛/ライフコーチ 菱谷ひろ子のオフィシャルサイト。">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
-    rel="stylesheet">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>菱谷ひろ子 | 恋愛・婚活コーチング｜あなたはすでに、愛される存在</title>
+  <meta name="description" content="あなたはすでに、愛される存在。本当の自分と出会い直した時、新しい世界への確かな一歩となる。恋愛・婚活コーチ菱谷ひろ子が、あなたの中にある答えをコーチングで引き出します。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+JP:wght@200;300;400;500;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
-    /* =========================================
-       CSS Variables & Base Reset
-    ========================================= */
+    /* =============================================
+       DESIGN TOKENS
+    ============================================= */
     :root {
-      --color-primary: #e0b4b4;
-      /* 優しく淡いくすみピンク */
-      --color-primary-dark: #c48b8b;
-      --color-accent: #b56c6c;
-      /* CTA用の目立つアクセントカラー */
-      --color-accent-hover: #9e5b5b;
-      --color-bg-base: #fdfbfaf0;
-      /* 温かみのあるオフホワイト */
-      --color-bg-sub: #faf5f5;
-      /* セクション背景用の極薄いピンク */
-      --color-text-main: #4a4544;
-      /* 柔らかなチャコールグレー */
-      --color-text-light: #7a7373;
-
-      --font-heading: 'Shippori Mincho', serif;
-      --font-body: 'Zen Kaku Gothic New', sans-serif;
+      --rose-gold:      #C4956A;
+      --rose-light:     #E8C5A8;
+      --rose-pale:      #F7EDE5;
+      --lavender:       #C9BFD8;
+      --lavender-light: #EDE9F4;
+      --champagne:      #F0E0C8;
+      --cream:          #FDF8F4;
+      --white:          #FFFFFF;
+      --text-dark:      #2D2320;
+      --text-mid:       #6B5B52;
+      --text-light:     #A0897E;
+      --gold:           #C4956A;
+      --gold-line:      rgba(196,149,106,0.35);
+      --shadow-soft:    0 8px 40px rgba(180,130,100,0.12);
+      --shadow-card:    0 4px 24px rgba(180,130,100,0.10);
+      --radius-lg:      20px;
+      --radius-xl:      32px;
+      --transition:     all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    /* =============================================
+       RESET & BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
     body {
-      font-family: var(--font-body);
-      color: var(--color-text-main);
-      background-color: var(--color-bg-base);
-      line-height: 1.8;
-      letter-spacing: 0.05em;
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text-dark);
+      background: var(--cream);
       overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
+      line-height: 1.8;
     }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
 
-    img {
-      max-width: 100%;
-      height: auto;
+    /* =============================================
+       SCROLL ANIMATION
+    ============================================= */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-up-delay-1 { transition-delay: 0.1s; }
+    .fade-up-delay-2 { transition-delay: 0.2s; }
+    .fade-up-delay-3 { transition-delay: 0.3s; }
+    .fade-up-delay-4 { transition-delay: 0.4s; }
+    .fade-up-delay-5 { transition-delay: 0.5s; }
+
+    /* =============================================
+       UTILITY
+    ============================================= */
+    .section-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--rose-gold);
       display: block;
+      margin-bottom: 0.75rem;
     }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-      transition: opacity 0.3s;
-    }
-
-    a:hover {
-      opacity: 0.8;
-    }
-
-    ul {
-      list-style: none;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    .serif {
-      font-family: var(--font-heading);
-      font-weight: 500;
-    }
-
-    /* =========================================
-       Common Components
-    ========================================= */
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 5%;
-    }
-
-    section {
-      padding: 120px 0;
-    }
-
-    .bg-sub {
-      background-color: var(--color-bg-sub);
-    }
-
     .section-title {
-      text-align: center;
-      font-size: 2.2rem;
-      margin-bottom: 60px;
-      color: var(--color-text-main);
-      position: relative;
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 300;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      line-height: 1.5;
+      color: var(--text-dark);
+    }
+    .section-title span { color: var(--rose-gold); }
+    .gold-line {
+      width: 48px;
+      height: 1px;
+      background: var(--rose-gold);
+      margin: 1.5rem auto;
+    }
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    .section-pad { padding: 100px 0; }
+    .section-pad-sm { padding: 72px 0; }
+
+    /* =============================================
+       NAVIGATION
+    ============================================= */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: var(--transition);
+    }
+    nav.scrolled {
+      background: rgba(253,248,244,0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 2px 20px rgba(180,130,100,0.10);
+      padding: 14px 40px;
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--text-dark);
+      letter-spacing: 0.05em;
+    }
+    .nav-logo span {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--rose-gold);
+      display: block;
+      letter-spacing: 0.1em;
+    }
+    .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+    .nav-links a {
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      color: var(--text-mid);
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--rose-gold); }
+    .nav-cta {
+      background: var(--rose-gold);
+      color: var(--white) !important;
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-size: 0.8rem !important;
+      letter-spacing: 0.1em;
+      transition: var(--transition) !important;
+    }
+    .nav-cta:hover {
+      background: var(--text-dark) !important;
+      transform: translateY(-1px);
+    }
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--text-dark);
+      transition: var(--transition);
     }
 
-    .section-title::after {
+    /* =============================================
+       SECTION 1 — HERO
+    ============================================= */
+    #hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('hero_bg.jpg');
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+    .hero-bg::after {
       content: '';
-      display: block;
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(253,248,244,0.88) 0%,
+        rgba(232,197,168,0.45) 40%,
+        rgba(201,191,216,0.15) 70%,
+        rgba(0,0,0,0) 100%
+      );
+    }
+    /* Floating particles */
+    .particles { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,149,106,0.6), transparent);
+      animation: float-particle linear infinite;
+    }
+    @keyframes float-particle {
+      0%   { transform: translateY(100vh) scale(0); opacity: 0; }
+      10%  { opacity: 1; }
+      90%  { opacity: 0.6; }
+      100% { transform: translateY(-20vh) scale(1); opacity: 0; }
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding-top: 60px;
+    }
+    .hero-inner {
+      padding: 0 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      max-width: 520px;
+      margin: 0 0 0 8vw;
+    }
+    .hero-text {}
+    .hero-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+      letter-spacing: 0.3em;
+      color: var(--rose-gold);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .hero-en::before {
+      content: '';
       width: 40px;
       height: 1px;
-      background-color: var(--color-accent);
-      margin: 20px auto 0;
+      background: var(--rose-gold);
     }
-
-    .section-subtitle {
-      text-align: center;
-      color: var(--color-accent);
-      font-size: 0.95rem;
-      font-weight: 500;
-      margin-bottom: 10px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
+    .hero-cert {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.78rem;
+      color: var(--text-dark);
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      text-shadow: 0 1px 4px rgba(255,255,255,0.7);
     }
-
-    .btn-cta {
-      background-color: var(--color-accent);
-      color: #fff;
-      padding: 0 30px;
-      height: 50px;
-      border-radius: 25px;
+    .hero-cert span {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.72rem;
+      color: var(--text-mid);
+      letter-spacing: 0.05em;
+      font-style: italic;
+    }
+    .hero-heading {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 200;
+      font-size: clamp(1.5rem, 2.4vw, 2rem);
+      line-height: 1.75;
+      color: var(--text-dark);
+      margin-bottom: 1.5rem;
+      white-space: nowrap;
+    }
+    .hero-heading .accent {
+      color: var(--rose-gold);
+      font-weight: 400;
+    }
+    .hero-sub {
+      font-size: clamp(0.9rem, 1.5vw, 1rem);
+      color: var(--text-dark);
+      line-height: 2;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+      text-shadow: 0 1px 4px rgba(255,255,255,0.7);
+    }
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      font-weight: 500;
-      font-size: 1rem;
-      transition: all 0.3s;
-      box-shadow: 0 4px 15px rgba(181, 108, 108, 0.3);
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn-cta:hover {
-      background-color: var(--color-accent-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(181, 108, 108, 0.4);
-      opacity: 1;
-    }
-
-    /* =========================================
-       Header (Sticky Frost Glass)
-    ========================================= */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      padding: 20px 0;
-      transition: all 0.4s ease;
-      background: transparent;
-    }
-
-    header.scrolled {
-      background: rgba(253, 251, 250, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      padding: 12px 0;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-    }
-
-    .header-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1100px;
-      padding: 0 3%;
-    }
-
-    .logo {
-      font-family: var(--font-heading);
-      font-size: 1.4rem;
-      font-weight: 600;
+      gap: 10px;
+      background: var(--rose-gold);
+      color: var(--white);
+      padding: 16px 36px;
+      border-radius: 50px;
+      font-size: 0.9rem;
       letter-spacing: 0.08em;
-      flex-shrink: 0;
-      margin-right: auto;
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 400;
+      transition: var(--transition);
+      box-shadow: 0 8px 30px rgba(196,149,106,0.35);
     }
-
-    /* --- Navigation Menu --- */
-    .nav-menu {
+    .btn-primary:hover {
+      background: var(--text-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(45,35,32,0.25);
+    }
+    .btn-primary svg { width: 18px; height: 18px; transition: transform 0.3s; }
+    .btn-primary:hover svg { transform: translateX(4px); }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-dark);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      padding: 16px 24px;
+      border: 1.5px solid rgba(45,35,32,0.4);
+      border-radius: 50px;
+      transition: var(--transition);
+      background: rgba(255,255,255,0.45);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      text-shadow: 0 1px 3px rgba(255,255,255,0.6);
+      font-weight: 500;
+    }
+    .btn-secondary:hover {
+      border-color: var(--rose-gold);
+      color: var(--rose-gold);
+      background: rgba(255,255,255,0.65);
+    }
+    .hero-image-wrap {
+      position: relative;
       display: flex;
+      justify-content: center;
+    }
+    .hero-image-frame {
+      position: relative;
+      width: 380px;
+      max-width: 100%;
+    }
+    .hero-image-frame::before {
+      content: '';
+      position: absolute;
+      top: -20px; right: -20px;
+      width: 100%;
+      height: 100%;
+      border: 1px solid var(--gold-line);
+      border-radius: var(--radius-xl);
+      z-index: 0;
+    }
+    .hero-image-frame::after {
+      content: '';
+      position: absolute;
+      bottom: -20px; left: -20px;
+      width: 70%;
+      height: 70%;
+      background: linear-gradient(135deg, rgba(201,191,216,0.25), rgba(196,149,106,0.1));
+      border-radius: var(--radius-xl);
+      z-index: 0;
+    }
+    .hero-image-frame img {
+      width: 100%;
+      border-radius: var(--radius-xl);
+      position: relative;
+      z-index: 1;
+      box-shadow: var(--shadow-soft);
+    }
+    /* シルエット画像用スタイル */
+    .hero-image-frame--silhouette {
+      width: 420px;
+    }
+    .hero-image-frame--silhouette::before {
+      border-radius: var(--radius-xl);
+      border-color: rgba(196,149,106,0.25);
+    }
+    .hero-image-frame--silhouette::after {
+      background: radial-gradient(ellipse at center, rgba(196,149,106,0.18), transparent 70%);
+      width: 100%;
+      height: 100%;
+      bottom: -30px;
+      left: -10px;
+    }
+    .hero-image-frame--silhouette img {
+      border-radius: var(--radius-xl);
+      box-shadow: 0 16px 60px rgba(196,149,106,0.25), 0 0 40px rgba(201,191,216,0.2);
+      filter: drop-shadow(0 0 20px rgba(196,149,106,0.15));
+    }
+    .hero-badge {
+      position: absolute;
+      bottom: 30px; left: -30px;
+      background: rgba(253,248,244,0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--gold-line);
+      border-radius: 16px;
+      padding: 16px 20px;
+      z-index: 2;
+      box-shadow: var(--shadow-card);
+      animation: badge-float 4s ease-in-out infinite;
+    }
+    @keyframes badge-float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .hero-badge-text {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 0.8rem;
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+    .hero-badge-sub {
+      font-size: 0.7rem;
+      color: var(--text-light);
+      margin-top: 2px;
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
       align-items: center;
       gap: 8px;
     }
-
-    .nav-menu a {
-      font-size: 0.88rem;
-      font-weight: 500;
-      color: var(--color-text-main);
-      padding: 6px 14px;
-      border-radius: 20px;
-      transition: all 0.3s ease;
-      white-space: nowrap;
-      letter-spacing: 0.03em;
+    .hero-scroll span {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      color: var(--text-light);
+      text-transform: uppercase;
+    }
+    .scroll-line {
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, var(--rose-gold), transparent);
+      animation: scroll-pulse 2s ease-in-out infinite;
+    }
+    @keyframes scroll-pulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
     }
 
-    .nav-menu a:hover {
-      background: rgba(224, 180, 180, 0.2);
-      color: var(--color-accent);
-      opacity: 1;
-    }
-
-    /* PCでは非表示、モバイルハンバーガー内でのみ表示 */
-    .mobile-only {
-      display: none;
-    }
-
-    /* --- Hamburger Button (hidden on desktop) --- */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 40px;
-      height: 40px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      z-index: 1100;
+    /* =============================================
+       SECTION 2 — EMPATHY (共感)
+    ============================================= */
+    #empathy {
+      background: var(--white);
       position: relative;
-    }
-
-    .hamburger span {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: var(--color-text-main);
-      border-radius: 2px;
-      transition: all 0.35s ease;
-    }
-
-    .hamburger span:nth-child(1) {
-      margin-bottom: 6px;
-    }
-
-    .hamburger span:nth-child(3) {
-      margin-top: 6px;
-    }
-
-    .hamburger.active span:nth-child(1) {
-      transform: translateY(8px) rotate(45deg);
-    }
-
-    .hamburger.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .hamburger.active span:nth-child(3) {
-      transform: translateY(-8px) rotate(-45deg);
-    }
-
-    /* --- Mobile Menu Overlay --- */
-    .mobile-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.3);
-      z-index: 990;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .mobile-overlay.active {
-      opacity: 1;
-    }
-
-    /* --- Facebook link style --- */
-    .social-links {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .social-links a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.15);
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 1.1rem;
-      transition: all 0.3s ease;
-    }
-
-    .social-links a:hover {
-      background: var(--color-accent);
-      color: #fff;
-      opacity: 1;
-      transform: translateY(-2px);
-    }
-
-    .footer-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .header-cta {
-      height: 44px;
-      padding: 0 20px;
-      font-size: 0.9rem;
-      flex-shrink: 0;
-    }
-
-    /* =========================================
-       1. Hero (第一印象)
-    ========================================= */
-    .hero {
-      height: 100vh;
-      min-height: 600px;
-      background: linear-gradient(rgba(253, 251, 250, 0.4), rgba(253, 251, 250, 0.8)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 0 5%;
-    }
-
-    .hero-content {
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      padding: 60px 50px;
-      border-radius: 20px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
-      max-width: 600px;
-      width: 100%;
-    }
-
-    .hero-subtitle {
-      font-size: 0.95rem;
-      color: var(--color-primary-dark);
-      margin-bottom: 20px;
-      letter-spacing: 0.1em;
-    }
-
-    .hero-title {
-      font-size: 3.2rem;
-      color: var(--color-text-main);
-      margin-bottom: 10px;
-      letter-spacing: 0.05em;
-    }
-
-    /* =========================================
-       2. 共感 (悩みへの寄り添い)
-    ========================================= */
-    .empathy-box {
-      background: #fff;
-      padding: 60px 50px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .empathy-list {
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-    }
-
-    .empathy-list li {
-      padding-left: 40px;
-      position: relative;
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: var(--color-text-main);
-    }
-
-    .empathy-list li::before {
-      content: '\f00c';
-      font-family: 'FontAwesome';
-      position: absolute;
-      left: 0;
-      top: 2px;
-      color: var(--color-primary-dark);
-      font-size: 1.4rem;
-    }
-
-    /* =========================================
-       3. 解決策 (Service / 効果・流れ・料金)
-    ========================================= */
-    .service-block {
-      margin-bottom: 140px;
-    }
-
-    .service-block:last-child {
-      margin-bottom: 0;
-    }
-
-    /* 効果リスト (スッキリ化) */
-    .effects-list {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .effect-item {
-      display: flex;
-      gap: 30px;
-      align-items: flex-start;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-      padding: 30px 10px;
-    }
-
-    .effect-item:first-child {
-      border-top: 1px solid rgba(0, 0, 0, 0.06);
-    }
-
-    .effect-item:last-child {
-      border-bottom: none;
-    }
-
-    .effect-num {
-      font-family: var(--font-heading);
-      font-size: 2.2rem;
-      color: var(--color-primary-dark);
-      line-height: 1;
-      opacity: 0.6;
-      font-style: italic;
-      min-width: 45px;
-      padding-top: 2px;
-    }
-
-    .effect-content h3 {
-      font-size: 1.25rem;
-      margin-bottom: 8px;
-      color: var(--color-text-main);
-    }
-
-    .effect-content p {
-      font-size: 1rem;
-      color: var(--color-text-light);
-      margin: 0;
-      line-height: 1.7;
-    }
-
-    /* セッションの流れ */
-    .flow-steps {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .flow-step {
-      display: flex;
-      background: #fff;
-      border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
     }
-
-    .flow-time {
-      background: var(--color-primary);
-      color: #fff;
-      padding: 30px 20px;
-      width: 180px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      flex-shrink: 0;
-    }
-
-    .flow-time .title {
-      font-family: var(--font-heading);
-      font-size: 1.2rem;
-    }
-
-    .flow-time .time {
-      font-size: 0.85rem;
-      margin-top: 5px;
-      opacity: 0.9;
-    }
-
-    .flow-content {
-      padding: 30px;
-      flex: 1;
-    }
-
-    .flow-content h4 {
-      font-size: 1.1rem;
-      margin-bottom: 10px;
-      color: var(--color-accent);
-    }
-
-    .flow-content p {
-      font-size: 0.95rem;
-    }
-
-    /* プラン・料金 (3列横並び) */
-    .pricing-wrap {
-      background: #fff;
-      border-radius: 20px;
-      padding: 60px 50px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
-    }
-
-    .price-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      /* 確実に3列にする設定 */
-      gap: 20px;
-      margin-bottom: 50px;
-    }
-
-    .price-card {
-      border: 1px solid #eee;
-      border-radius: 12px;
-      padding: 30px 20px;
-      text-align: center;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .price-card.recommend {
-      border: 2px solid var(--color-accent);
-      background-color: var(--color-bg-sub);
-      transform: scale(1.03);
-      /* 推奨プランを少し大きく見せる */
-      box-shadow: 0 10px 25px rgba(181, 108, 108, 0.05);
-      z-index: 1;
-    }
-
-    .price-card-title {
-      font-size: 1.1rem;
-      font-weight: bold;
-      margin-bottom: 15px;
-      border-bottom: 1px dashed #ddd;
-      padding-bottom: 15px;
-    }
-
-    .price-card-desc {
-      font-size: 0.85rem;
-      color: var(--color-text-light);
-      margin-bottom: 25px;
-    }
-
-    .price-card-bottom {
-      margin-top: auto;
-      /* 高さが違っても価格部分を下揃えにする */
-    }
-
-    .price-normal {
-      font-size: 0.95rem;
-      color: var(--color-text-light);
-      text-decoration: line-through;
-      margin-bottom: 5px;
-    }
-
-    .price-monitor {
-      color: var(--color-accent);
-      font-size: 1.7rem;
-      font-family: var(--font-heading);
-      font-weight: 600;
-      line-height: 1;
-    }
-
-    .pricing-note {
-      background: var(--color-bg-sub);
-      padding: 40px;
-      border-radius: 12px;
-    }
-
-    .pricing-note h4 {
-      font-size: 1.2rem;
-      color: var(--color-accent);
-      margin-bottom: 15px;
-    }
-
-    /* =========================================
-       4. 証拠 (Voice)
-    ======================================== */
-    .voice-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-    }
-
-    .voice-card {
-      background: #fff;
-      padding: 40px;
-      border-radius: 16px;
-      position: relative;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.02);
-    }
-
-    .voice-card::before {
-      content: '\f10d';
-      font-family: 'FontAwesome';
-      position: absolute;
-      top: 30px;
-      left: 30px;
-      color: var(--color-primary);
-      opacity: 0.2;
-      font-size: 2.5rem;
-    }
-
-    .voice-text {
-      font-size: 0.95rem;
-      position: relative;
-      z-index: 1;
-      margin-bottom: 20px;
-    }
-
-    .voice-label {
-      display: inline-block;
-      background: var(--color-bg-sub);
-      color: var(--color-accent);
-      padding: 5px 15px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: bold;
-    }
-
-    /* =========================================
-       5. プロフィール (Profile)
-    ========================================= */
-    .profile-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 50px;
-      align-items: center;
-      margin-bottom: 80px;
-    }
-
-    .profile-image {
-      flex: 1;
-      min-width: 300px;
-    }
-
-    .profile-image img {
-      border-radius: 20px;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
-    }
-
-    .profile-text {
-      flex: 1.2;
-      min-width: 300px;
-    }
-
-    .profile-text h3 {
-      font-size: 2.2rem;
-      margin-bottom: 5px;
-    }
-
-    .profile-text .role {
-      color: var(--color-primary-dark);
-      font-weight: 500;
-      margin-bottom: 25px;
-    }
-
-    .profile-list li {
-      margin-bottom: 10px;
-      padding-left: 25px;
-      position: relative;
-      font-size: 0.95rem;
-    }
-
-    .profile-list li i {
-      position: absolute;
-      left: 0;
-      top: 6px;
-      color: var(--color-primary-dark);
-    }
-
-    .story-box {
-      background: #fff;
-      padding: 60px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
-    }
-
-    .story-box h3 {
-      text-align: center;
-      margin-bottom: 30px;
-      font-size: 1.6rem;
-      color: var(--color-accent);
-    }
-
-    .story-box p {
-      margin-bottom: 1.5rem;
-    }
-
-    .story-box p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* =========================================
-       6. 行動 (CTA / Contact)
-    ========================================= */
-    .contact-section {
-      background: linear-gradient(135deg, var(--color-bg-sub) 0%, var(--color-bg-base) 100%);
-    }
-
-    .form-wrapper {
-      max-width: 700px;
-      margin: 0 auto;
-      background: #fff;
-      padding: 50px;
-      border-radius: 20px;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.03);
-    }
-
-    .form-group {
-      margin-bottom: 25px;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 500;
-    }
-
-    .required {
-      background: var(--color-accent);
-      color: #fff;
-      font-size: 0.75rem;
-      padding: 2px 8px;
-      border-radius: 4px;
-      margin-left: 10px;
-      vertical-align: middle;
-    }
-
-    .form-control {
-      width: 100%;
-      padding: 15px;
-      border: 1px solid #e2dddc;
-      border-radius: 8px;
-      font-family: var(--font-body);
-      font-size: 16px;
-      transition: all 0.3s;
-      background-color: var(--color-bg-base);
-      min-height: 50px;
-    }
-
-    .form-control:focus {
-      outline: none;
-      border-color: var(--color-accent);
-      background-color: #fff;
-      box-shadow: 0 0 0 3px rgba(181, 108, 108, 0.15);
-    }
-
-    textarea.form-control {
-      min-height: 150px;
-      resize: vertical;
-    }
-
-    .btn-submit {
-      width: 100%;
-      margin-top: 10px;
-    }
-
-
-    /* =========================================
-       Footer
-    ========================================= */
-    footer {
-      background: var(--color-text-main);
-      color: rgba(255, 255, 255, 0.7);
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 0.85rem;
-      letter-spacing: 0.05em;
-    }
-
-    /* =========================================
-       Story Box Read More (Gradient Fade)
-    ========================================= */
-    .story-content {
-      position: relative;
-    }
-
-    .story-hidden {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.6s ease;
-    }
-
-    .story-hidden.expanded {
-      max-height: 2000px;
-    }
-
-    .story-fade {
-      position: relative;
-      pointer-events: none;
-    }
-
-    .story-fade::after {
+    #empathy::before {
       content: '';
       position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 80px;
-      background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
-      transition: opacity 0.4s ease;
+      top: -100px; right: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(201,191,216,0.2), transparent 70%);
+      border-radius: 50%;
     }
-
-    .story-fade.no-fade::after {
-      opacity: 0;
+    .empathy-header { text-align: center; margin-bottom: 64px; }
+    .empathy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
     }
-
-    .story-toggle {
-      display: block;
-      margin: 20px auto 0;
-      background: none;
-      border: 2px solid var(--color-accent);
-      color: var(--color-accent);
-      padding: 10px 30px;
-      border-radius: 25px;
-      font-size: 0.95rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-family: var(--font-body);
+    .empathy-card {
+      background: var(--cream);
+      border: 1px solid rgba(196,149,106,0.15);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
     }
-
-    .story-toggle:hover {
-      background: var(--color-accent);
-      color: #fff;
-    }
-
-    /* =========================================
-       Privacy Policy Modal
-    ========================================= */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
+    .empathy-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px;
       height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 2000;
+      background: linear-gradient(to bottom, var(--rose-gold), var(--lavender));
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .empathy-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-soft);
+      border-color: rgba(196,149,106,0.3);
+    }
+    .empathy-card:hover::before { opacity: 1; }
+    .empathy-icon {
+      font-size: 1.6rem;
+      margin-bottom: 16px;
+    }
+    .empathy-card p {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      line-height: 1.9;
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 300;
+    }
+    .empathy-footer {
+      text-align: center;
+      margin-top: 60px;
+      padding: 40px;
+      background: linear-gradient(135deg, rgba(196,149,106,0.08), rgba(201,191,216,0.1));
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--gold-line);
+    }
+    .empathy-footer p {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: var(--text-dark);
+      font-weight: 300;
+      line-height: 2;
+    }
+    .empathy-footer p strong {
+      color: var(--rose-gold);
+      font-weight: 500;
+    }
+
+    /* =============================================
+       SECTION 2.5 — MESSAGE FROM HIROKO
+    ============================================= */
+    #message {
+      background: var(--white);
+      position: relative;
+    }
+    .message-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      background: linear-gradient(145deg, rgba(247,237,229,0.6), rgba(237,233,244,0.4));
+      border: 1px solid var(--gold-line);
+      border-radius: var(--radius-xl);
+      padding: 64px 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    .message-wrap::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(to right, transparent, var(--rose-gold), transparent);
+    }
+    .message-wrap::after {
+      content: '"';
+      position: absolute;
+      top: -20px; right: 32px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 10rem;
+      color: rgba(196,149,106,0.07);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .message-deco {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .message-deco::before,
+    .message-deco::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold-line));
+    }
+    .message-deco::after {
+      background: linear-gradient(to left, transparent, var(--gold-line));
+    }
+    .message-from {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--rose-gold);
+    }
+    .message-lead {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      font-weight: 300;
+      color: var(--text-dark);
+      line-height: 2.1;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .message-lead strong {
+      color: var(--rose-gold);
+      font-weight: 500;
+    }
+    .message-text {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 2.1;
+      margin-bottom: 1.2rem;
+      text-align: center;
+    }
+    .message-closing {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      font-weight: 300;
+      color: var(--text-dark);
+      line-height: 2.1;
+      margin-top: 2rem;
+      margin-bottom: 0;
+      text-align: center;
+    }
+    .message-closing strong {
+      color: var(--rose-gold);
+      font-weight: 500;
+    }
+    .message-sig {
+      text-align: right;
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--gold-line);
+    }
+    .message-sig p {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1rem;
+      color: var(--text-mid);
+      font-weight: 400;
+      letter-spacing: 0.15em;
+    }
+
+    /* =============================================
+       SECTION 3 — STORY (ストーリー)
+    ============================================= */
+    #story {
+      background: linear-gradient(160deg, var(--cream) 0%, var(--lavender-light) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    #story::after {
+      content: '"';
+      position: absolute;
+      top: -40px; left: -10px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20rem;
+      color: rgba(196,149,106,0.06);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .story-header { text-align: center; margin-bottom: 72px; }
+    .story-timeline {
+      position: relative;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .story-timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--gold-line), var(--rose-gold), var(--gold-line), transparent);
+      transform: translateX(-50%);
+    }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 1fr 60px 1fr;
+      gap: 0;
+      margin-bottom: 56px;
+      align-items: start;
+    }
+    .timeline-item.right .timeline-text-left { order: 3; }
+    .timeline-item.right .timeline-dot { order: 2; }
+    .timeline-item.right .timeline-text-right { order: 1; }
+    .timeline-dot {
+      display: flex;
       justify-content: center;
-      align-items: center;
-      padding: 20px;
+      padding-top: 6px;
     }
-
-    .modal-overlay.active {
-      display: flex;
-    }
-
-    .modal-box {
-      background: #fff;
-      border-radius: 20px;
-      max-width: 700px;
-      width: 100%;
-      max-height: 80vh;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-      animation: modalFadeIn 0.3s ease;
-    }
-
-    @keyframes modalFadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 25px 30px;
-      border-bottom: 1px solid #eee;
+    .timeline-dot-inner {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2px solid var(--rose-gold);
+      position: relative;
       flex-shrink: 0;
     }
-
-    .modal-header h3 {
-      font-size: 1.3rem;
-      color: var(--color-text-main);
-    }
-
-    .modal-close {
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: var(--color-text-light);
-      width: 36px;
-      height: 36px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .timeline-dot-inner::after {
+      content: '';
+      position: absolute;
+      inset: 3px;
       border-radius: 50%;
-      transition: all 0.3s;
+      background: var(--rose-gold);
     }
-
-    .modal-close:hover {
-      background: var(--color-bg-sub);
-      color: var(--color-text-main);
+    .timeline-text-left,
+    .timeline-text-right {
+      padding: 0 32px;
     }
-
-    .modal-body {
-      padding: 30px;
-      overflow-y: auto;
-      font-size: 0.92rem;
-      line-height: 1.9;
+    .timeline-text-left { text-align: right; }
+    .timeline-text-right { text-align: left; }
+    .timeline-phase {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--rose-gold);
+      margin-bottom: 8px;
     }
-
-    .modal-body h4 {
-      font-size: 1.05rem;
-      margin: 25px 0 10px;
-      color: var(--color-accent);
+    .timeline-card {
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(196,149,106,0.2);
+      border-radius: 16px;
+      padding: 24px 28px;
+      box-shadow: var(--shadow-card);
+      transition: var(--transition);
     }
-
-    .modal-body h4:first-child {
-      margin-top: 0;
+    .timeline-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-soft);
     }
-
-    .modal-body p {
+    .timeline-card h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text-dark);
       margin-bottom: 10px;
     }
+    .timeline-card p {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.9;
+      font-weight: 300;
+    }
+    .story-quote {
+      max-width: 680px;
+      margin: 56px auto 0;
+      text-align: center;
+      padding: 48px;
+      background: rgba(255,255,255,0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--gold-line);
+      position: relative;
+    }
+    .story-quote::before {
+      content: '';
+      position: absolute;
+      top: -1px; left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--rose-gold), transparent);
+    }
+    .story-quote p {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      font-weight: 300;
+      line-height: 2;
+      color: var(--text-dark);
+    }
+    .story-quote p em { font-style: normal; color: var(--rose-gold); }
 
-    /* Privacy checkbox */
-    .privacy-group {
+    /* =============================================
+       SECTION 4 — SERVICES
+    ============================================= */
+    #services {
+      background: var(--rose-pale);
+    }
+    .services-header { text-align: center; margin-bottom: 64px; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    .service-card {
+      background: var(--cream);
+      border-radius: var(--radius-xl);
+      padding: 48px 40px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(196,149,106,0.15);
+      transition: var(--transition);
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(180,130,100,0.15);
+    }
+    .service-card.featured {
+      background: linear-gradient(145deg, var(--text-dark), #4a3835);
+      color: var(--white);
+      border-color: transparent;
+    }
+    .service-card.featured .service-label,
+    .service-card.featured .service-number,
+    .service-card.featured h3,
+    .service-card.featured p { color: var(--white); }
+    .service-card.featured .service-label { color: var(--rose-light); }
+    .service-card::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; right: -60px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,149,106,0.12), transparent 70%);
+    }
+    .service-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: var(--gold-line);
+      line-height: 1;
+      margin-bottom: 24px;
+    }
+    .service-card.featured .service-number {
+      color: rgba(196,149,106,0.4);
+    }
+    .service-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--rose-gold);
+      display: block;
+      margin-bottom: 12px;
+    }
+    .service-card h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+    .service-card p {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      line-height: 1.9;
+      font-weight: 300;
+      margin-bottom: 28px;
+    }
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .service-tag {
+      font-size: 0.75rem;
+      padding: 6px 14px;
+      border-radius: 50px;
+      background: rgba(196,149,106,0.12);
+      color: var(--rose-gold);
+      letter-spacing: 0.05em;
+    }
+    .service-card.featured .service-tag {
+      background: rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.85);
+    }
+
+    /* =============================================
+       SECTION 5 — REASONS (選ばれる理由)
+    ============================================= */
+    #reasons {
+      background: linear-gradient(160deg, var(--lavender-light) 0%, var(--rose-pale) 100%);
+    }
+    .reasons-header { text-align: center; margin-bottom: 64px; }
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 28px;
+    }
+    .reason-card {
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(196,149,106,0.15);
+      border-radius: var(--radius-lg);
+      padding: 36px 28px;
+      text-align: center;
+      transition: var(--transition);
+    }
+    .reason-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-soft);
+    }
+    .reason-icon-wrap {
+      width: 68px; height: 68px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(196,149,106,0.15), rgba(201,191,216,0.25));
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin: 20px 0 10px;
-      font-size: 0.92rem;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 1.8rem;
+    }
+    .reason-card h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+    }
+    .reason-card p {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      line-height: 1.9;
+      font-weight: 300;
     }
 
-    .privacy-group input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
-      accent-color: var(--color-accent);
-      cursor: pointer;
+    /* =============================================
+       SECTION 6 — TESTIMONIALS
+    ============================================= */
+    #testimonials {
+      background: var(--white);
+    }
+    .testimonials-header { text-align: center; margin-bottom: 64px; }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+    }
+    .testimonial-card {
+      background: var(--cream);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      border: 1px solid rgba(196,149,106,0.12);
+      position: relative;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-soft);
+    }
+    .testimonial-quote-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      line-height: 1;
+      color: var(--rose-light);
+      margin-bottom: 8px;
+    }
+    .testimonial-text {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      line-height: 2;
+      font-weight: 300;
+      margin-bottom: 0;
+      flex: 1;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .testimonial-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--lavender), var(--champagne));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
       flex-shrink: 0;
     }
-
-    .privacy-group label {
-      cursor: pointer;
-      margin-bottom: 0;
-    }
-
-    .privacy-link {
-      color: var(--color-accent);
-      text-decoration: underline;
-      cursor: pointer;
+    .testimonial-name {
+      font-size: 0.85rem;
       font-weight: 500;
+      color: var(--text-dark);
+    }
+    .testimonial-meta {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      margin-top: 2px;
+    }
+    .testimonial-stars {
+      color: var(--rose-gold);
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      margin-bottom: 4px;
+    }
+    .before-after-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      padding: 4px 10px;
+      border-radius: 50px;
+      background: rgba(196,149,106,0.12);
+      color: var(--rose-gold);
+      letter-spacing: 0.05em;
+      margin-top: 20px;
+      align-self: flex-start;
     }
 
-    .privacy-link:hover {
-      opacity: 0.8;
+    /* =============================================
+       SECTION 7 — PROFILE
+    ============================================= */
+    #profile {
+      background: linear-gradient(160deg, var(--cream) 0%, var(--champagne) 100%);
+    }
+    .profile-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    /* 案B: 小丸写真＋プロフィールカード */
+    .profile-card {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+    }
+    .profile-photo-sm {
+      flex-shrink: 0;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid rgba(196,149,106,0.4);
+      box-shadow: 0 4px 16px rgba(180,130,100,0.18);
+    }
+    .profile-photo-sm img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .profile-info {
+      flex: 1;
+    }
+    .profile-heading {
+      display: flex;
+      align-items: baseline;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .profile-name-ja {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.68rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: var(--text-dark);
+    }
+    .profile-name-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.22em;
+      color: var(--rose-gold);
+    }
+    .profile-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, rgba(196,149,106,0.5), transparent);
+      margin-bottom: 14px;
+    }
+    .profile-location {
+      font-size: 0.86rem;
+      color: var(--text-light);
+      margin-bottom: 12px;
+      letter-spacing: 0.05em;
+    }
+    .profile-meta-list {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .profile-meta-row {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      line-height: 1.8;
+    }
+    .profile-meta-label {
+      display: inline-block;
+      color: var(--rose-gold);
+      font-weight: 500;
+      min-width: 6em;
+      margin-right: 8px;
+    }
+    /* スマホ: 縦積み */
+    @media (max-width: 520px) {
+      .profile-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+      }
+      .profile-heading { justify-content: center; }
+      .profile-divider { max-width: 220px; margin: 0 auto 14px; }
+      .profile-location { text-align: center; }
+    }
+    .profile-text {}
+    .profile-text .section-label { text-align: left; }
+    .profile-text .section-title { margin-bottom: 1.5rem; }
+    .profile-text .gold-line { margin: 1rem 0; }
+    .profile-body {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      line-height: 2.1;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+    .profile-body strong { color: var(--text-dark); font-weight: 500; }
+    .profile-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+    .profile-tag {
+      font-size: 0.78rem;
+      padding: 7px 18px;
+      border-radius: 50px;
+      border: 1px solid var(--gold-line);
+      color: var(--text-mid);
+      letter-spacing: 0.05em;
     }
 
-    .btn-submit:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-      transform: none;
-      box-shadow: none;
+    /* =============================================
+       SECTION 8 — FAQ
+    ============================================= */
+    #faq {
+      background: var(--white);
+    }
+    .faq-header { text-align: center; margin-bottom: 64px; }
+    .faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      border-bottom: 1px solid rgba(196,149,106,0.2);
+      overflow: hidden;
+    }
+    .faq-item:first-child { border-top: 1px solid rgba(196,149,106,0.2); }
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 8px;
+      cursor: pointer;
+      gap: 20px;
+      transition: color 0.3s;
+    }
+    .faq-question:hover { color: var(--rose-gold); }
+    .faq-q-text {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .faq-q-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--rose-gold);
+      font-weight: 400;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .faq-q-text p {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+    .faq-icon {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      border: 1px solid var(--gold-line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: var(--transition);
+    }
+    .faq-icon svg {
+      width: 12px; height: 12px;
+      stroke: var(--rose-gold);
+      transition: transform 0.4s;
+    }
+    .faq-item.open .faq-icon { background: var(--rose-gold); border-color: var(--rose-gold); }
+    .faq-item.open .faq-icon svg { stroke: white; transform: rotate(45deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .faq-item.open .faq-answer { max-height: 300px; }
+    .faq-answer-inner {
+      display: flex;
+      gap: 16px;
+      padding: 0 8px 28px;
+    }
+    .faq-a-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--lavender);
+      font-weight: 400;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .faq-answer-inner p {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 2;
+      font-weight: 300;
     }
 
-    .btn-submit:disabled:hover {
-      opacity: 0.5;
-      transform: none;
-      box-shadow: none;
+    /* =============================================
+       SECTION 9 — CTA
+    ============================================= */
+    #cta {
+      background: var(--text-dark);
+      position: relative;
+      overflow: hidden;
+    }
+    #cta::before {
+      content: '';
+      position: absolute;
+      top: -150px; left: -150px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,149,106,0.15), transparent 70%);
+    }
+    #cta::after {
+      content: '';
+      position: absolute;
+      bottom: -100px; right: -100px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,191,216,0.12), transparent 70%);
+    }
+    .cta-inner {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .cta-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--rose-light);
+      display: block;
+      margin-bottom: 1.5rem;
+    }
+    .cta-heading {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 200;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--white);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    .cta-heading .accent { color: var(--rose-light); font-weight: 400; }
+    .cta-sub {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 2;
+      margin-bottom: 2.5rem;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-note {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.35);
+      margin-top: 20px;
+      letter-spacing: 0.05em;
+    }
+    .cta-form {
+      max-width: 480px;
+      margin: 0 auto 0;
+    }
+    .cta-form-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .cta-form input,
+    .cta-form select,
+    .cta-form textarea {
+      flex: 1;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 12px;
+      padding: 14px 18px;
+      color: var(--white);
+      font-size: 0.85rem;
+      font-family: 'Noto Sans JP', sans-serif;
+      outline: none;
+      transition: border-color 0.3s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .cta-form input::placeholder,
+    .cta-form textarea::placeholder { color: rgba(255,255,255,0.35); }
+    .cta-form input:focus,
+    .cta-form select:focus,
+    .cta-form textarea:focus { border-color: var(--rose-gold); }
+    .cta-form select option { color: var(--text-dark); background: var(--white); }
+    .cta-btn {
+      width: 100%;
+      padding: 18px;
+      background: var(--rose-gold);
+      color: var(--white);
+      border: none;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: var(--transition);
+      margin-top: 8px;
+      box-shadow: 0 8px 30px rgba(196,149,106,0.3);
+    }
+    .cta-btn:hover {
+      background: #d4a678;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(196,149,106,0.5);
+    }
+    .cta-divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 28px 0;
+    }
+    .cta-divider::before,
+    .cta-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+    }
+    .cta-divider span {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.1em;
+    }
+    .cta-line-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 12px;
+      color: rgba(255,255,255,0.75);
+      font-size: 0.88rem;
+      transition: var(--transition);
+      letter-spacing: 0.05em;
+    }
+    .cta-line-btn:hover {
+      border-color: var(--rose-gold);
+      color: var(--rose-light);
+    }
+    .line-icon { font-size: 1.2rem; }
+
+    /* =============================================
+       SECTION 10 — FOOTER
+    ============================================= */
+    footer {
+      background: #1a1210;
+      padding: 48px 0 32px;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-brand .nav-logo { color: var(--white); }
+    .footer-brand .nav-logo span { color: var(--rose-light); }
+    .footer-brand p {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.35);
+      margin-top: 16px;
+      max-width: 240px;
+      line-height: 1.8;
+    }
+    .footer-links h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--rose-light);
+      margin-bottom: 16px;
+    }
+    .footer-links ul { list-style: none; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.45);
+      transition: color 0.3s;
+    }
+    .footer-links a:hover { color: var(--rose-light); }
+    .footer-social { display: flex; gap: 14px; margin-top: 8px; }
+    .social-btn {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.5);
+      transition: var(--transition);
+    }
+    .social-btn:hover {
+      border-color: var(--rose-gold);
+      color: var(--rose-light);
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 28px;
+      text-align: center;
+    }
+    .footer-bottom p {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.05em;
     }
 
-    /* =========================================
-       Responsive Adjustments
-    ========================================= */
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
     @media (max-width: 768px) {
-      .hero-content {
-        padding: 40px 30px;
-      }
+      nav { padding: 18px 20px; }
+      nav.scrolled { padding: 12px 20px; }
+      .nav-links { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(253,248,244,0.97); flex-direction: column; justify-content: center; align-items: center; gap: 2rem; z-index: 99; }
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: 1rem; }
+      .nav-toggle { display: flex; z-index: 100; }
+      .nav-toggle.open span:nth-child(1) { transform: rotate(45deg) translateY(9.5px); }
+      .nav-toggle.open span:nth-child(2) { opacity: 0; }
+      .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translateY(-9.5px); }
 
-      .hero-title {
-        font-size: 2.2rem;
-      }
+      .hero-inner { padding: 0 20px; margin: 0 auto; text-align: left; padding-top: 60px; }
+      .hero-en { justify-content: flex-start; }
+      .hero-btns { justify-content: flex-start; }
+      .hero-scroll { display: none; }
 
-      section {
-        padding: 80px 0;
-      }
+      .story-timeline::before { left: 24px; }
+      .timeline-item { grid-template-columns: 48px 1fr; }
+      .timeline-item.right .timeline-text-left { order: initial; grid-column: 2; }
+      .timeline-item.right .timeline-dot { order: initial; grid-column: 1; }
+      .timeline-item.right .timeline-text-right { display: none; }
+      .timeline-text-left { display: none; }
+      .timeline-text-right { text-align: left !important; padding: 0 0 0 12px; }
+      .timeline-item.right .timeline-text-left { text-align: left; padding: 0 0 0 12px; }
 
-      .section-title {
-        font-size: 1.8rem;
-        margin-bottom: 40px;
-      }
+      .services-grid { grid-template-columns: 1fr; }
+      .profile-inner { grid-template-columns: 1fr; gap: 40px; }
+      .profile-image-frame { max-width: 320px; margin: 0 auto; }
 
-      .empathy-box {
-        padding: 40px 30px;
-      }
+      .cta-form-row { flex-direction: column; }
+      .footer-inner { flex-direction: column; }
+      .section-pad { padding: 72px 0; }
+    }
 
-      .effect-item {
-        flex-direction: column;
-        gap: 10px;
-        padding: 25px 0;
-      }
+    /* =============================================
+       SUCCESS MESSAGE
+    ============================================= */
+    .success-msg {
+      display: none;
+      text-align: center;
+      padding: 32px;
+      color: var(--rose-light);
+    }
+    .success-msg h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.2rem;
+      font-weight: 300;
+      margin-bottom: 8px;
+    }
+    .success-msg p { font-size: 0.85rem; opacity: 0.7; }
 
-      .effect-num {
-        font-size: 2rem;
-      }
-
-      .pricing-wrap {
-        padding: 40px 20px;
-      }
-
-      /* スマホ閲覧時は文字が小さくなりすぎるため、自動で縦並びになります */
-      .price-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .price-card.recommend {
-        transform: scale(1);
-      }
-
-      .flow-step {
-        flex-direction: column;
-      }
-
-      .flow-time {
-        width: 100%;
-        padding: 15px;
-        flex-direction: row;
-        gap: 10px;
-      }
-
-      .flow-time .time {
-        margin-top: 0;
-      }
-
-      .story-box,
-      .form-wrapper {
-        padding: 30px 20px;
-      }
-
-      /* === ヘッダー固定（スマホ対応） === */
-      header {
-        background: rgba(253, 251, 250, 0.95);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        padding: 10px 0;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-      }
-
-      /* === ハンバーガーメニュー（スマホ） === */
-      .hamburger {
-        display: flex;
-      }
-
-      .nav-menu {
-        position: fixed;
-        top: 0;
-        right: -280px;
-        width: 280px;
-        height: 100vh;
-        background: rgba(253, 251, 250, 0.98);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        flex-direction: column;
-        align-items: stretch;
-        padding: 90px 30px 40px;
-        gap: 0;
-        z-index: 1050;
-        transition: right 0.35s ease;
-        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
-        overflow-y: auto;
-      }
-
-      .nav-menu.active {
-        right: 0;
-      }
-
-      .nav-menu a {
-        font-size: 1rem;
-        padding: 16px 20px;
-        border-radius: 12px;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        text-align: left;
-      }
-
-      .nav-menu a:last-child {
-        border-bottom: none;
-      }
-
-      .mobile-only {
-        display: block;
-      }
-
-      .mobile-overlay {
-        display: block;
-        pointer-events: none;
-      }
-
-      .mobile-overlay.active {
-        pointer-events: auto;
-      }
-
-      .header-cta {
-        display: none;
-      }
-
-      body.menu-open {
-        overflow: hidden;
-      }
-
-      /* === 泣き別れ防止 (モバイル専用) === */
-      /* 全テキスト要素を画面幅で自然に折り返す */
-      .empathy-list li,
-      .effect-content h3,
-      .effect-content p,
-      .story-box p,
-      .voice-text,
-      .pricing-note p,
-      .profile-list li,
-      .price-card-desc,
-      .flow-content p,
-      .flow-content h4 {
-        word-break: normal;
-        overflow-wrap: anywhere;
-      }
-
-      /* PC向けの <br> をスマホでは非表示にして自然な折り返しにする */
-      .story-box p br,
-      .hero-content p br,
-      .profile-list li br,
-      .price-card-desc br {
-        display: none;
-      }
+    /* =============================================
+       EMPATHY BRIDGE ZONE
+    ============================================= */
+    .empathy-bridge {
+      margin-top: 40px;
+      padding: 44px 48px;
+      background: var(--cream);
+      border: 1px solid rgba(196,149,106,0.15);
+      border-top: 3px solid var(--rose-gold);
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+    .empathy-bridge-body {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.3rem, 2.2vw, 1.4rem);
+      color: var(--text-dark);
+      line-height: 2;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+    .empathy-bridge-question {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.4rem, 3vw, 1.7rem);
+      color: var(--rose-gold);
+      font-weight: 300;
+      line-height: 1.8;
+      margin-bottom: 0.5rem;
+      font-style: normal;
+    }
+    .empathy-bridge-cta {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.3rem, 2.2vw, 1.4rem);
+      color: var(--rose-gold);
+      font-weight: 300;
+      line-height: 2;
+    }
+    @media (max-width: 768px) {
+      .empathy-bridge { padding: 32px 24px; }
     }
   </style>
 </head>
-
 <body>
 
-  <script>
-    // グローバル関数: ナビリンクのスムーススクロール（CDN不要）
-    function navigateTo(targetId) {
-      // メニューを閉じる
-      var h = document.getElementById('hamburger');
-      var n = document.getElementById('navMenu');
-      var o = document.getElementById('mobileOverlay');
-      if (h) h.classList.remove('active');
-      if (n) n.classList.remove('active');
-      if (o) o.classList.remove('active');
-      document.body.classList.remove('menu-open');
-
-      // 遅延してスクロール
-      setTimeout(function () {
-        if (targetId === '#') {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-          return;
-        }
-        var el = document.querySelector(targetId);
-        if (el) {
-          var header = document.getElementById('header');
-          var offset = header ? header.offsetHeight : 0;
-          var pos = el.getBoundingClientRect().top + window.pageYOffset - offset;
-          window.scrollTo({ top: pos, behavior: 'smooth' });
-        }
-      }, 150);
-    }
-  </script>
-
-  <header id="header">
-    <div class="container header-inner">
-      <div class="logo">Hishiya Hiroko</div>
-      <nav class="nav-menu" id="navMenu">
-        <a href="#" onclick="navigateTo('#');return false;">ホーム</a>
-        <a href="#profile" onclick="navigateTo('#profile');return false;">プロフィール</a>
-        <a href="#service" onclick="navigateTo('#service');return false;">コーチングについて</a>
-        <a href="#flow" onclick="navigateTo('#flow');return false;">セッションの流れ</a>
-        <a href="#pricing" onclick="navigateTo('#pricing');return false;">料金</a>
-        <a href="#voice" onclick="navigateTo('#voice');return false;">お客様の声</a>
-        <a href="#contact" class="mobile-only" onclick="navigateTo('#contact');return false;">予約・相談</a>
-      </nav>
-      <a href="#contact" class="btn-cta header-cta">予約・相談</a>
-      <button class="hamburger" id="hamburger" aria-label="メニューを開く">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+  <!-- =============================================
+       NAVIGATION
+  ============================================= -->
+  <nav id="navbar">
+    <div class="nav-logo">
+      Hiroko Hishiya
+      <span>菱谷ひろ子</span>
     </div>
-  </header>
-  <div class="mobile-overlay" id="mobileOverlay"></div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#empathy">こんな気持ち</a></li>
+      <li><a href="#services">サービス</a></li>
+      <li><a href="#profile">プロフィール</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#cta" class="nav-cta" id="nav-cta-btn">無料相談</a></li>
+    </ul>
+    <div class="nav-toggle" id="nav-toggle" role="button" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
 
-  <main>
-    <section class="hero">
-      <div class="hero-content" data-aos="fade-up" data-aos-duration="1500">
-        <p class="hero-subtitle">恋愛/ライフコーチ × パーソナルカラーアナリスト</p>
-        <h1 class="hero-title serif">菱谷 ひろ子</h1>
-        <p>本来のあなたらしさを咲かせる、<br>内なるジャーニーへ。</p>
-      </div>
-    </section>
-
-    <section id="empathy" class="bg-sub">
-      <div class="container">
-        <div class="section-subtitle" data-aos="fade-up">For You</div>
-        <h2 class="section-title serif" data-aos="fade-up" data-aos-delay="100">こんなお悩みはありませんか？</h2>
-
-        <div style="text-align: center; margin-bottom: 20px; font-weight: 500;" data-aos="fade-up" data-aos-delay="150">
-          <p>周りには相談しづらい、こんな思いを抱え込んでいませんか？</p>
-        </div>
-
-        <div class="empathy-box" data-aos="fade-up" data-aos-delay="200">
-          <ul class="empathy-list">
-            <li>嫌われるのが怖くて、無意識に相手の顔色を窺い「都合の良い自分」を演じてしまう。好かれようと頑張るほど本来の自分から遠ざかり、誰かと一緒にいることに疲れてしまう。</li>
-            <li>仕事もプライベートも「一人で頑張ること」が当たり前になりすぎて、誰かに甘えたり、弱い自分を見せたりする方法が分からない。心の中では寄り添ってほしいのに、無意識に強がってしまう。</li>
-            <li>「完璧で愛される自分」でいなければ価値がないと思い込み、常に自分にダメ出しをしてしまう。他人の評価や世間の「普通」に振り回され、自分が本当はどう生きたいのかが見えなくなっている。</li>
-            <li>もうあんな風に傷つきたくない。本気で人を好きになって失うのが怖くて、心のどこかでブレーキをかけている。一歩踏み出したい気持ちと、傷つくのが怖い気持ちの間で立ち往生している。</li>
-          </ul>
-
-          <div
-            style="margin-top: 30px; padding-top: 20px; border-top: 1px dashed rgba(224, 180, 180, 0.5); text-align: center;">
-            <p style="font-weight: 500; color: var(--color-accent); margin-bottom: 5px;">でも、どうかご安心ください。</p>
-            <p>その悩みは、あなた自身を深く知り、<br>本当の幸せへと向かうための「大切な入り口」です。</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="profile">
-      <div class="container">
-        <div class="section-subtitle" data-aos="fade-up">About Me</div>
-        <h2 class="section-title serif" data-aos="fade-up">プロフィール</h2>
-
-        <div class="profile-wrap" data-aos="fade-up" data-aos-delay="100">
-          <div class="profile-image">
-            <img src="profile.jpg" alt="菱谷ひろ子 プロフィール写真">
-          </div>
-          <div class="profile-text">
-            <h3 class="serif">菱谷 ひろ子</h3>
-            <p class="role">恋愛・ライフコーチ / パーソナルカラーアナリスト</p>
-            <ul class="profile-list">
-              <li><i class="fa-solid fa-building"></i> 2000年より自動車部品メーカー勤務。<br>現在、人事総務部として採用・教育を担当。</li>
-              <li><i class="fa-solid fa-child-reaching"></i> 2児の母（7歳＆５歳の男の子）</li>
-              <li><i class="fa-solid fa-location-dot"></i> 愛知県西尾市在住</li>
-              <li style="margin-top: 15px;"><i class="fa-regular fa-heart"></i> <strong>好きなこと：</strong> 読書、ヨガ、焚き火、川遊び、旅行
-              </li>
-              <li><i class="fa-regular fa-star"></i> <strong>叶えたいこと：</strong> 「百花繚乱な世界」<br>〜それぞれの個性が調和しながら美しく咲き誇っている世界〜
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="story-box" data-aos="fade-up" data-aos-delay="200">
-          <h3 class="serif">私の想い</h3>
-          <div class="story-content">
-            <!-- 常に表示される部分 -->
-            <p>
-              私が恋愛・ライフコーチとして歩み始めたのは、恋愛で深く傷ついた経験があったからです。<br>何度も同じことで悩み、自分を責め、誰かを信じることさえ怖くなっていたあの頃——<br>そんな私を救ってくれたのは、アドバイスをくれた人ではなく、ただそばにいて、静かに話を聴いてくれた友人の存在でした。
-            </p>
-            <p>言葉ではなく、さりげない気遣いや、そっと寄り添う温かさ。その優しさが、私の心の傷を静かに癒してくれたのです。<br>この体験こそが、今の私の原点になっています。</p>
-
-            <!-- グラデーションフェード + 折りたたみ部分 -->
-            <div class="story-fade" id="storyFade">
-              <div class="story-hidden" id="storyHidden">
-                <p>恋愛・ライフコーチとして日々感じているのは、恋愛の悩みは <strong>“ほんの入口”</strong>
-                  にすぎないということ。<br>そこから自分自身と深く向き合い、人生全体のテーマへと広がっていくことがあります。<br>コーチの問いかけは、自分ひとりでは気づけなかった視点、新たな選択肢、そして未来の可能性を照らしてくれます。
-                </p>
-                <p>
-                  「なんだか自分と向き合うのが怖いな」「コーチングって、よく分からないな」<br>そんな風に感じている方こそ、ぜひ一度お話してみませんか？<br>体験セッションでは、安心してコーチングに触れていただけます。
-                </p>
-                <p>
-                  3か月後、半年後、1年後——あなたはどんな自分になっていたいですか？その時、見えている景色は、どんなものでしょうか？<br>今はまだ具体的にイメージできなくても、大丈夫です。<br>まずは、あなたのペースで一歩を踏み出してみてください。
-                </p>
-                <p>
-                  必要であれば、私はそっと背中を押しますし、「せーの♪」と思い切ってジャンプすることだってできます。<br>どんな感情があっても大丈夫。「こんなこと言ってもいいのかな」と思うことも、全部吐き出してOKです。<br>今のあなたのままで、何も問題ありません。<br>人はもともと創造力と才知にあふれ、欠けることのない存在だと信じています。
-                </p>
-                <p
-                  style="text-align: center; font-weight: 500; color: var(--color-accent); margin-top: 40px; font-size: 1.1rem; font-family: var(--font-heading);">
-                  どんなときも、あなたと共にいます。<br>あなたと出会えたことに、心から感謝しています♡<br>最後まで読んでくださり、本当にありがとうございました。
-                </p>
-              </div>
-            </div>
-            <button class="story-toggle" id="storyToggle">続きを読む</button>
-          </div>
+  <!-- =============================================
+       SECTION 1: HERO
+  ============================================= -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="particles" id="particles"></div>
+    <div class="hero-content">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <p class="hero-cert fade-up fade-up-delay-1">米国CTI認定コーチ CPCC（恋愛・婚活専門）<span>Certified Professional Co-Active Coach</span></p>
+          <h1 class="hero-heading fade-up fade-up-delay-1">
+            自分を愛せた瞬間、<br />
+            現実が変わり始め、<br />
+            <span class="accent">あなたは、愛される存在になる。</span>
+          </h1>
+          <p class="hero-sub fade-up fade-up-delay-2">
+            自分を愛することは、<br />
+            自分に甘くなることでも、<br />
+            自分を正当化し続けることでもない。<br /><br />
+            自分を愛するとは、<br />
+            自分を深く知り、理解すること。<br />
+            まず、そこから始めましょう。<br /><br />
+            今は信じられなくていい。<br />
+            あなたが幸せになれることを、<br />
+            私は知っています。<br /><br />
+            その一歩を、一緒に踏み出しませんか？
+          </p>
         </div>
       </div>
-    </section>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
 
-    <section id="service">
-      <div class="container">
+  <!-- =============================================
+       SECTION 2: EMPATHY
+  ============================================= -->
+  <section id="empathy" class="section-pad">
+    <div class="container">
+      <div class="empathy-header">
+        <span class="section-label fade-up">For You</span>
+        <h2 class="section-title fade-up fade-up-delay-1">
+          こんな気持ち、<br />ありませんか？
+        </h2>
+        <div class="gold-line fade-up fade-up-delay-2"></div>
+      </div>
+      <div class="empathy-grid">
+        <div class="empathy-card fade-up fade-up-delay-1">
+          <div class="empathy-icon">💔</div>
+          <p>いつも好きになる相手には、すでにパートナーがいる。<br />なぜかそういう人を好きになってしまう。</p>
+        </div>
+        <div class="empathy-card fade-up fade-up-delay-2">
+          <div class="empathy-icon">🪞</div>
+          <p>「私なんて…」が、いつの間にか口癖になっていた。</p>
+        </div>
+        <div class="empathy-card fade-up fade-up-delay-3">
+          <div class="empathy-icon">🌸</div>
+          <p>嫌われたくない一心で、気づけばいつも相手に合わせてしまう。</p>
+        </div>
+        <div class="empathy-card fade-up fade-up-delay-4">
+          <div class="empathy-icon">💭</div>
+          <p>結婚相手としての条件は申し分ない。でも気持ちが動かない。</p>
+        </div>
+        <div class="empathy-card fade-up fade-up-delay-3">
+          <div class="empathy-icon">⏳</div>
+          <p>年齢を重ねるごとに、いつの間にか理想を描けなくなった。</p>
+        </div>
+        <div class="empathy-card fade-up fade-up-delay-4">
+          <div class="empathy-icon">🌙</div>
+          <p>寂しさと向き合わない為に、今この瞬間が楽しければ良いと現実逃避・・・</p>
+        </div>
+      </div>
+      <div class="empathy-bridge fade-up">
+        <p class="empathy-bridge-body">
+          これは、私自身が長年悩んできた気持ちと、<br />
+          これまで相談を受けてきた多くの方の気持ちです。
+        </p>
+        <p class="empathy-bridge-question">あなたはどんなところが重なりますか？</p>
+      </div>
+    </div>
+  </section>
 
-        <div class="service-block">
-          <div class="section-subtitle" data-aos="fade-up">Effects</div>
-          <h2 class="section-title serif" data-aos="fade-up">コーチングを受けると</h2>
 
-          <div class="effects-list">
-            <div class="effect-item" data-aos="fade-up">
-              <div class="effect-num">01</div>
-              <div class="effect-content">
-                <h3 class="serif">思考がクリアになる</h3>
-                <p>モヤモヤが整理され、「本当はどうしたいのか」が見えてくる。</p>
-              </div>
-            </div>
-            <div class="effect-item" data-aos="fade-up">
-              <div class="effect-num">02</div>
-              <div class="effect-content">
-                <h3 class="serif">行動にブレーキをかけている原因がわかる</h3>
-                <p>無意識のストッパーを一緒に見つけ、前に進む一歩が踏み出せる。</p>
-              </div>
-            </div>
-            <div class="effect-item" data-aos="fade-up">
-              <div class="effect-num">03</div>
-              <div class="effect-content">
-                <h3 class="serif">自分の本音に気づけるようになる</h3>
-                <p>「本当はこうしたい」という想いを思い出し、自分軸で選べるようになる。</p>
-              </div>
-            </div>
-            <div class="effect-item" data-aos="fade-up">
-              <div class="effect-num">04</div>
-              <div class="effect-content">
-                <h3 class="serif">感情を味方にできるようになる</h3>
-                <p>振り回されるのではなく、「感情＝大事なサイン」として活かせるようになる。</p>
-              </div>
-            </div>
-            <div class="effect-item" data-aos="fade-up">
-              <div class="effect-num">05</div>
-              <div class="effect-content">
-                <h3 class="serif">ありのままの自分にOKが出せるようになる</h3>
-                <p>「今のままで大丈夫」という安心感から、前向きな自分へ。</p>
-              </div>
-            </div>
-            <div class="effect-item" data-aos="fade-up">
-              <div class="effect-num">06</div>
-              <div class="effect-content">
-                <h3 class="serif">人との関係が自然にラクになる</h3>
-                <p>我慢や無理を手放し、心に余裕をもったコミュニケーションができるようになる。</p>
-              </div>
-            </div>
-            <div class="effect-item" data-aos="fade-up">
-              <div class="effect-num">07</div>
-              <div class="effect-content">
-                <h3 class="serif">未来へのワクワクが広がる</h3>
-                <p>「こうなったらいいな」が現実に近づき、可能性を信じられるようになる。</p>
-              </div>
-            </div>
+  <!-- =============================================
+       SECTION 4: SERVICES
+  ============================================= -->
+  <section id="services" class="section-pad">
+    <div class="container">
+      <div class="services-header">
+        <span class="section-label fade-up">Services</span>
+        <h2 class="section-title fade-up fade-up-delay-1">
+          あなたの「今」に合わせた<br /><span>完全個別サポート。</span>
+        </h2>
+        <div class="gold-line fade-up fade-up-delay-2"></div>
+      </div>
+      <div class="services-grid">
+        <div class="service-card featured fade-up">
+          <div class="service-number">01</div>
+          <span class="service-label">Life Coaching</span>
+          <h3>ライフコーチング<br />〜人生をより豊かにする〜</h3>
+          <p>日々の忙しさの中で見失いがちな「本当の自分の気持ち」。対話を通じて、あなたの想いや価値観、理想の未来を丁寧に紐解いていきます。答えは外側にあるのではなく、すでにあなたの内側にあります。</p>
+          <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:20px;flex-wrap:wrap;">
+            <span style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:rgba(232,197,168,0.9);font-weight:300;">60 min〜</span>
+            <span style="color:rgba(232,197,168,0.4);font-size:1rem;">/</span>
+            <span style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:rgba(232,197,168,0.9);font-weight:300;">¥15,000〜</span>
+          </div>
+          <div class="service-tags">
+            <span class="service-tag">価値観の明確化</span>
+            <span class="service-tag">ブロック解放</span>
+            <span class="service-tag">理想パートナー像</span>
+            <span class="service-tag">セルフラブ</span>
           </div>
         </div>
-
-        <div class="service-block" id="flow">
-          <div class="section-subtitle" data-aos="fade-up">Flow</div>
-          <h2 class="section-title serif" data-aos="fade-up">セッションの流れ</h2>
-          <div class="flow-steps">
-            <div class="flow-step" data-aos="fade-up" data-aos-delay="100">
-              <div class="flow-time">
-                <span class="title">無料体験</span>
-                <span class="time">(60分)</span>
-              </div>
-              <div class="flow-content">
-                <h4>コーチとの相性も大切です</h4>
-                <p>Co-Activeコーチングについて、Hiroyaってどんな人？など近況をお聞きしながら、サンプルセッションを20分ほど予定しています。</p>
-              </div>
-            </div>
-            <div class="flow-step" data-aos="fade-up" data-aos-delay="200">
-              <div class="flow-time">
-                <span class="title">導入</span>
-                <span class="time">(120分)</span>
-              </div>
-              <div class="flow-content">
-                <h4>意図的な協働関係の構築</h4>
-                <p>どんな雰囲気で進めたいか、セッションを進める上での価値観共有やルール決めを行います。今後のスケジュールについてもこの時に決めていきます。</p>
-              </div>
-            </div>
-            <div class="flow-step" data-aos="fade-up" data-aos-delay="300">
-              <div class="flow-time">
-                <span class="title">セッション</span>
-                <span class="time">(60分) × 6回〜</span>
-              </div>
-              <div class="flow-content">
-                <h4>あなたの内なるジャーニー</h4>
-                <p>コーチはアドバイスをしたり、答えを差し上げたりはしません。「答えはすべてあなたの中にある」と信じています。人生の脚本家であり主人公はあなたです。</p>
-              </div>
-            </div>
-            <div class="flow-step" data-aos="fade-up" data-aos-delay="400">
-              <div class="flow-time">
-                <span class="title">クロージング</span>
-                <span class="time">(60分)</span>
-              </div>
-              <div class="flow-content">
-                <h4>旅の振り返り</h4>
-                <p>コーチングの旅を振り返って、行動や意識の変化について対話します。</p>
-              </div>
-            </div>
+        <div class="service-card fade-up fade-up-delay-1">
+          <div class="service-number">02</div>
+          <span class="service-label">Love &amp; Marriage Advice</span>
+          <h3>ライフコーチング×恋愛・婚活アドバイス<br />〜幸せなご縁を引き寄せる〜</h3>
+          <p>あなたの価値観や望む未来を大切にしながら、恋愛・婚活における具体的なアドバイスをお伝えします。正解を押し付けるのではなく、私自身の経験や学びを参考として共有しながら、あなたに合った選択ができるようサポートします。</p>
+          <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:20px;flex-wrap:wrap;">
+            <span style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--rose-gold);font-weight:300;">90 min〜</span>
+            <span style="color:rgba(196,149,106,0.4);font-size:1rem;">/</span>
+            <span style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--rose-gold);font-weight:300;">¥21,000〜</span>
+            <span style="font-size:0.78rem;color:var(--text-light);letter-spacing:0.05em;">コーチング 60 min ＋ アドバイス 30 min</span>
+          </div>
+          <div class="service-tags">
+            <span class="service-tag">恋愛パターン分析</span>
+            <span class="service-tag">婚活戦略</span>
+            <span class="service-tag">コミュニケーション</span>
+            <span class="service-tag">自己肯定感</span>
           </div>
         </div>
+      </div>
 
-        <div class="service-block" id="pricing">
-          <div class="section-subtitle" data-aos="fade-up">Plan & Price</div>
-          <h2 class="section-title serif" data-aos="fade-up">プラン・料金</h2>
+      <!-- 料金・セッション情報 -->
+      <div style="margin-top:48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;" class="fade-up">
+        <div style="text-align:center;padding:28px;background:var(--cream);border-radius:var(--radius-lg);border:1px solid rgba(196,149,106,0.15);">
+          <p style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--rose-gold);margin-bottom:8px;">60 min〜</p>
+          <p style="font-size:0.82rem;color:var(--text-mid);">コーチングセッション時間</p>
+        </div>
+        <div style="text-align:center;padding:28px;background:var(--cream);border-radius:var(--radius-lg);border:1px solid rgba(196,149,106,0.15);">
+          <p style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--rose-gold);margin-bottom:8px;">Online</p>
+          <p style="font-size:0.82rem;color:var(--text-mid);">全国どこでもOK</p>
+        </div>
+        <div style="text-align:center;padding:28px;background:var(--cream);border-radius:var(--radius-lg);border:1px solid rgba(196,149,106,0.15);">
+          <p style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--rose-gold);margin-bottom:8px;">Free</p>
+          <p style="font-size:0.82rem;color:var(--text-mid);">初回相談は無料</p>
+        </div>
+        <div style="text-align:center;padding:28px;background:var(--cream);border-radius:var(--radius-lg);border:1px solid rgba(196,149,106,0.15);">
+          <p style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--rose-gold);margin-bottom:8px;">Private</p>
+          <p style="font-size:0.82rem;color:var(--text-mid);">完全秘密厳守</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-          <div class="pricing-wrap" data-aos="fade-up" data-aos-delay="100">
-            <div class="price-grid">
 
-              <div class="price-card">
-                <div class="price-card-title">単発セッション</div>
-                <div class="price-card-desc">お試しで受けたい方へ<br>(60分)</div>
-                <div class="price-card-bottom">
-                  <div class="price-monitor">15,000円〜</div>
-                </div>
-              </div>
-
-              <div class="price-card recommend">
-                <div class="price-card-title" style="color: var(--color-accent);">6回セッション <span
-                    style="font-size: 0.8rem; font-weight: normal; background: var(--color-accent); color: #fff; padding: 2px 8px; border-radius: 4px; margin-left: 5px;">推奨</span>
-                </div>
-                <div class="price-card-desc">しっかり変化を感じたい方へ<br>(導入120分 ＋ 60分×6回)</div>
-                <div class="price-card-bottom">
-                  <div class="price-monitor">120,000円</div>
-                </div>
-              </div>
-
-              <div class="price-card">
-                <div class="price-card-title">6回以上継続の場合</div>
-                <div class="price-card-desc">さらに深めたい方へ<br>(随時追加OK)</div>
-                <div class="price-card-bottom">
-                  <div class="price-monitor">+15,000円 <span style="font-size: 0.9rem; font-weight: normal;">/回</span>
-                  </div>
-                </div>
-              </div>
-
+  <!-- =============================================
+       SECTION 6: TESTIMONIALS
+  ============================================= -->
+  <section id="testimonials" class="section-pad">
+    <div class="container">
+      <div class="testimonials-header">
+        <span class="section-label fade-up">Voices</span>
+        <h2 class="section-title fade-up fade-up-delay-1">
+          変わっていった、<br /><span>クライアントの声</span>
+        </h2>
+        <div class="gold-line fade-up fade-up-delay-2"></div>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card fade-up">
+          <div class="testimonial-author" style="margin-bottom:20px;">
+            <div class="testimonial-avatar">🌸</div>
+            <div>
+              <p class="testimonial-name">会社員 / 28歳女性</p>
+              <p class="testimonial-meta">コーチングセッション6回受講</p>
             </div>
+          </div>
+          <p class="testimonial-text">
+            何年も忘れられずに引きずっていた元彼の事があり、新しい恋に進めずに悩んでいたのですが、ひろ子さんと1回目のコーチングセッションで思い切り感情を味わい尽くし、身体の感覚にもフォーカスしてもらったら、2回目のセッションまでには元彼の事が全く頭に浮かばなくなりました。そしてすぐに気になる人が現れて、本当に驚きました！ただそこはうまくいきませんでした。自分の理想とは何かをゆっくり丁寧にひろ子さんと一緒に紐解いてもらったら、数か月後に安心感を与えてくれる塩顔イケメンとお付き合いする事になりました。今はその恋を楽しんでいます。
+          </p>
+          <span class="before-after-badge">忘れられない恋 → 新しい出会い</span>
+        </div>
+        <div class="testimonial-card fade-up fade-up-delay-1">
+          <div class="testimonial-author" style="margin-bottom:20px;">
+            <div class="testimonial-avatar">🌷</div>
+            <div>
+              <p class="testimonial-name">塾講師 / 37歳女性</p>
+              <p class="testimonial-meta">コーチングセッション12回受講</p>
+            </div>
+          </div>
+          <p class="testimonial-text">
+            いつもダメンズばかりと付き合ってしまい、お付き合いしても長続きせず、「恋愛はうまくいかないもの」と思い込んでいました。そんな時に友人の紹介でひろ子さんと出会い、根気強く話を聴いていただく中で、自分では気づいていなかった価値観や本当の気持ちに気づくことができました。12回のコーチングセッションを終えた後、マッチングアプリで出会った高身長で優しい彼と結婚することになりました。まさか自分がこんなご報告をできる日が来るなんて思ってもいませんでした。ひろ子さんが繰り返し伝えてくださった「あなたには魅力があるんだよ」という言葉は、今でも私の大きな支えであり、自信につながっています。
+          </p>
+          <span class="before-after-badge">ダメンズ沼 → 幸せな結婚</span>
+        </div>
+        <div class="testimonial-card fade-up fade-up-delay-2">
+          <div class="testimonial-author" style="margin-bottom:20px;">
+            <div class="testimonial-avatar">🌺</div>
+            <div>
+              <p class="testimonial-name">個人事業主 / 49歳女性</p>
+              <p class="testimonial-meta">ライフコーチング×恋愛アドバイス受講</p>
+            </div>
+          </div>
+          <p class="testimonial-text">
+            50代を目前に、「理想の恋愛なんてもう望んではいけない」と思っていました。そんな私に、ひろ子さんは「思い切り理想を思い描いていいんですよ」と背中を押してくれました。コーチングを通して、自分がどんな人と一緒にいて、どんな気持ちで過ごしたいのかが明確になっていきました。そして今、理想そのものと思える15歳年下の素敵な彼とお付き合いしています。自分の人生にこんな出会いが待っているなんて、本当に奇跡のようです。ひろ子さんのコーチングを受けていなかったら、この幸せな毎日はなかったと思います。
+          </p>
+          <span class="before-after-badge">諦め → 理想の出会い</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <div class="pricing-note">
-              <h4 class="serif">なぜ継続セッションが大切なのか</h4>
-              <p>
-                長年育ててきた思考や感情のくせは、1回ではなかなか変わりません。ジムに一度行っただけでは筋肉がつかないように、コーチングも<strong>“継続”</strong>があってこそ、変化が定着します。少しずつ、やさしく整えていく時間こそが、自分らしい未来への第一歩になります。
+  <!-- =============================================
+       SECTION 7: PROFILE
+  ============================================= -->
+  <section id="profile" class="section-pad">
+    <div class="container">
+      <div class="profile-inner">
+        <!-- 案B: 小丸写真＋プロフィール情報 -->
+        <span class="section-label fade-up">Profile</span>
+        <div class="profile-card fade-up fade-up-delay-1">
+          <div class="profile-photo-sm">
+            <img src="profile.jpg" alt="菱谷ひろ子" />
+          </div>
+          <div class="profile-info">
+            <div class="profile-heading">
+              <p class="profile-name-ja">菱谷　ひろ子</p>
+              <p class="profile-name-en">Hishiya Hiroko</p>
+            </div>
+            <div class="profile-divider"></div>
+            <p class="profile-location">📍 愛知県西尾市</p>
+            <div class="profile-meta-list">
+              <p class="profile-meta-row">ライフコーチ／イメージ＆カラーコンサルタント</p>
+              <p class="profile-meta-row">2児の母（8歳・6歳の男の子）</p>
+              <p class="profile-meta-row">
+                <span class="profile-meta-label">好きなこと</span>読書、焚き火、川遊び、旅行
+              </p>
+              <p class="profile-meta-row">
+                <span class="profile-meta-label">叶えたいこと</span>「百花繚乱な世界」<br>
+                <span style="margin-left:calc(6em + 8px);font-size:0.82rem;color:var(--text-light);">〜それぞれの個性が調和しながら美しく咲き誇っている世界〜</span>
               </p>
             </div>
           </div>
         </div>
-
-      </div>
-    </section>
-
-    <section id="voice" class="bg-sub">
-      <div class="container">
-        <div class="section-subtitle" data-aos="fade-up">Voices</div>
-        <h2 class="section-title serif" data-aos="fade-up">お客様・仲間の声</h2>
-
-        <div class="voice-grid">
-          <div class="voice-card" data-aos="fade-up" data-aos-delay="100">
-            <span class="voice-label">クライアント様より</span>
-            <p class="voice-text">
-              ひろ子さんのコーチングを通して、自分では向き合っているつもりだった悩みに、実は正面から向き合えていなかったことに気づきました。質問を重ねていただく中で、「本当はこうしたかったんだ」といった感情が自然に掘り起こされ、自分の心の声を初めてしっかり聞けた気がします。どんな感情も否定せず、寄り添って聞いてくださったことがとても安心できて、心が軽くなりました。
-            </p>
-          </div>
-
-          <div class="voice-card" data-aos="fade-up" data-aos-delay="200">
-            <span class="voice-label">クライアント様より</span>
-            <p class="voice-text">
-              元彼が何年も忘れられない・・・というテーマから始めたのですが、1回目のセッションの時にHiroyaさんが一緒に感情を味わって下さって、今までにない感覚を得ました。2回目のセッションまでに元彼の事が全く気にならなくなっていた自分がそこにいて、新しく気になる人まで現われて、本当に驚きです。毎回気づきが多く、質問にはいつもハッとさせられます。
-            </p>
-          </div>
-
-          <div class="voice-card" data-aos="fade-up" data-aos-delay="300">
-            <span class="voice-label">コーチ仲間より</span>
-            <p class="voice-text">ひろ子のコーチングには愛とユーモアもあり、太陽のような明るさがある。時におっさんみたいなたくましさを感じる(笑)
-              そんな人柄から滲み出る関わりに惹かれている。一緒だったらワクワクする世界を見に行ける！</p>
-          </div>
-
-          <div class="voice-card" data-aos="fade-up" data-aos-delay="400">
-            <span class="voice-label">コーチ仲間より</span>
-            <p class="voice-text">
-              周囲を明るく照らす存在でありながら、痛みや困難も知るからこその深い共感力と優しさを持っている。感受性とユーモアに富み、喜びも怒りも悲しみも素直に表現できるからこそ、嘘偽りがなく信頼できる存在。</p>
-          </div>
+        <div class="profile-text fade-up fade-up-delay-1">
+          <h2 class="section-title"><span>なぜ、この仕事をするのか</span></h2>
+          <div class="gold-line"></div>
+          <p class="profile-body">
+            かつての私は、恋愛に何度も傷つき、「私には魅力がないのかもしれない」と思っていました。好きになる人とはうまくいかず、相手の顔色ばかりを気にして、自分はいつも後回し。幸せを感じても長くは続かない、そう思うようになっていました。
+          </p>
+          <p class="profile-body">
+            でも、そんな人生はあまりにも苦しい。「このままでは嫌だ。もっと幸せになりたい」——そう思った私は、自分自身と向き合うことを始めました。そこで気づいたのは、<strong>私はずっと「誰かに愛されること」を求める一方で、自分自身を大切にしていなかったということ。</strong>そして心のどこかで、「私なんかが幸せになってはいけない」と、幸せになることに自分でブレーキをかけていたことでした。
+          </p>
+          <p class="profile-body">
+            少しずつ自分の気持ちに耳を傾け、自分を認め、大切にすることを続けていくうちに、見える景色が変わっていきました。<span style="color:#D4789A;font-weight:500;">そして自然な流れの中で今の夫と出会い、結婚。今では二人の子どもにも恵まれ、穏やかで幸せな毎日を過ごしています。</span>
+          </p>
+          <p class="profile-body">
+            <strong>「自分を大切にすること」こそが、愛される第一歩。</strong>あなたの中にすでにある魅力に気づき、それを大切にしていくことから、人生は変わり始めます。そのそばに寄り添う伴走者でありたい——それが、私がこの仕事をしている理由です。
+          </p>
         </div>
-      </div>
-    </section>
-
-    <section id="contact" class="contact-section">
-      <div class="container">
-        <div class="section-subtitle" data-aos="fade-up">Contact</div>
-        <h2 class="section-title serif" data-aos="fade-up">ご予約・お問い合わせ</h2>
-        <p style="text-align: center; margin-bottom: 40px;" data-aos="fade-up" data-aos-delay="100">
-          無料体験セッションのお申し込みや、ご質問などお気軽にご連絡ください。</p>
-
-        <div class="form-wrapper" data-aos="fade-up" data-aos-delay="200">
-          <form id="contactForm" action="https://ssgform.com/s/6wojUpOmlKJF" method="POST">
-            <div class="form-group">
-              <label for="name">お名前 <span class="required">必須</span></label>
-              <input type="text" id="name" name="name" class="form-control" required placeholder="例：山田 花子">
-            </div>
-            <div class="form-group">
-              <label for="email">メールアドレス <span class="required">必須</span></label>
-              <input type="email" id="email" name="email" class="form-control" required
-                placeholder="例：info@example.com">
-            </div>
-            <div class="form-group">
-              <label for="type">ご希望のメニュー</label>
-              <select id="type" name="type" class="form-control">
-                <option value="無料体験セッション(60分)">無料体験セッション(60分)</option>
-                <option value="単発セッション(60分)">単発セッション(60分)</option>
-                <option value="継続セッション">継続セッション</option>
-                <option value="その他のお問い合わせ">その他のお問い合わせ</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="message">メッセージ・ご相談内容 <span class="required">必須</span></label>
-              <textarea id="message" name="message" class="form-control" required
-                placeholder="ご希望の日時（第3希望まで）や、現在気になっていることなどをご自由にご記入ください。"></textarea>
-            </div>
-
-            <div class="privacy-group">
-              <input type="checkbox" id="privacyCheck" required>
-              <label for="privacyCheck"><span class="privacy-link" id="openPrivacy">プライバシーポリシー</span>に同意する <span
-                  class="required">必須</span></label>
-            </div>
-
-            <button type="submit" class="btn-cta btn-submit" id="submitBtn" disabled>送信する</button>
-          </form>
-        </div>
-
-      </div>
-    </section>
-  </main>
-
-  <!-- Privacy Policy Modal -->
-  <div class="modal-overlay" id="privacyModal">
-    <div class="modal-box">
-      <div class="modal-header">
-        <h3 class="serif">プライバシーポリシー</h3>
-        <button class="modal-close" id="closePrivacy" aria-label="閉じる">&times;</button>
-      </div>
-      <div class="modal-body">
-        <h4>1. 個人情報の取得について</h4>
-        <p>当サイトでは、お問い合わせやご予約の際に、お名前、メールアドレス等の個人情報をお頑きすることがあります。これらの情報は、お問い合わせへの対応およびサービス提供のために利用いたします。</p>
-
-        <h4>2. 個人情報の利用目的</h4>
-        <p>取得した個人情報は、以下の目的で利用いたします。</p>
-        <p>・お問い合わせへの回答・ご連絡<br>・セッションのご予約・スケジュール調整<br>・サービス向上のための参考情報</p>
-
-        <h4>3. 個人情報の第三者提供</h4>
-        <p>取得した個人情報は、法令に基づく場合を除き、ご本人の同意なく第三者に提供することはありません。</p>
-
-        <h4>4. 個人情報の管理</h4>
-        <p>取得した個人情報は、適切な管理のもと、不正アクセス・紛失・漏洩等の防止に努めます。</p>
-
-        <h4>5. 個人情報の開示・訂正・削除</h4>
-        <p>ご本人からの個人情報の開示・訂正・削除のご要望があった場合は、速やかに対応いたします。</p>
-
-        <h4>6. お問い合わせ窓口</h4>
-        <p>個人情報の取り扱いに関するお問い合わせは、当サイトのお問い合わせフォームよりご連絡ください。</p>
       </div>
     </div>
-  </div>
+  </section>
 
+  <!-- =============================================
+       SECTION 8: FAQ
+  ============================================= -->
+  <section id="faq" class="section-pad">
+    <div class="container">
+      <div class="faq-header">
+        <span class="section-label fade-up">FAQ</span>
+        <h2 class="section-title fade-up fade-up-delay-1">よくある<span>ご質問</span></h2>
+        <div class="gold-line fade-up fade-up-delay-2"></div>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item fade-up" id="faq-1">
+          <div class="faq-question" onclick="toggleFaq('faq-1')">
+            <div class="faq-q-text">
+              <span class="faq-q-label">Q</span>
+              <p>初回相談は本当に無料ですか？何か売り込みはありますか？</p>
+            </div>
+            <div class="faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </div>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <span class="faq-a-label">A</span>
+              <p>はい、初回30分の相談は完全無料です。売り込みや勧誘は一切行いません。まずはお話を聴かせてください。その上でご自身で判断いただけます。</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-item fade-up fade-up-delay-1" id="faq-2">
+          <div class="faq-question" onclick="toggleFaq('faq-2')">
+            <div class="faq-q-text">
+              <span class="faq-q-label">Q</span>
+              <p>恋愛経験がほとんどない私でも受けられますか？</p>
+            </div>
+            <div class="faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </div>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <span class="faq-a-label">A</span>
+              <p>もちろんです。恋愛経験の有無は関係ありません。「自分がどんなパートナーを求めているのかわからない」という方こそ、コーチングで大きく変わります。</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-item fade-up fade-up-delay-2" id="faq-3">
+          <div class="faq-question" onclick="toggleFaq('faq-3')">
+            <div class="faq-q-text">
+              <span class="faq-q-label">Q</span>
+              <p>セッションはオンラインですか？どこに住んでいても大丈夫ですか？</p>
+            </div>
+            <div class="faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </div>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <span class="faq-a-label">A</span>
+              <p>セッションはZoomを使ったオンライン形式です。全国どこからでも、ご自宅のリラックスした環境でお受けいただけます。海外在住の方もご相談ください。</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-item fade-up fade-up-delay-3" id="faq-4">
+          <div class="faq-question" onclick="toggleFaq('faq-4')">
+            <div class="faq-q-text">
+              <span class="faq-q-label">Q</span>
+              <p>効果が出るまでどのくらいかかりますか？</p>
+            </div>
+            <div class="faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </div>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <span class="faq-a-label">A</span>
+              <p>個人差がありますが、多くの方が初回セッション後から「気持ちが楽になった」「視点が変わった」とおっしゃいます。継続的な変化には3〜6ヶ月を目安にしていただくと効果的です。</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-item fade-up fade-up-delay-4" id="faq-5">
+          <div class="faq-question" onclick="toggleFaq('faq-5')">
+            <div class="faq-q-text">
+              <span class="faq-q-label">Q</span>
+              <p>話した内容は秘密にしてもらえますか？</p>
+            </div>
+            <div class="faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </div>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <span class="faq-a-label">A</span>
+              <p>完全に守秘義務を遵守します。セッション内でお聞きした内容を外部に開示することは一切ありません。安心してお話しください。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       SECTION 9: CTA
+  ============================================= -->
+  <section id="cta" class="section-pad">
+    <div class="container">
+      <div class="cta-inner">
+        <span class="cta-en fade-up">First Step</span>
+        <h2 class="cta-heading fade-up fade-up-delay-1">
+          <span class="accent">まずはお話しませんか？</span>
+        </h2>
+        <p class="cta-sub fade-up fade-up-delay-2">
+          初回60分の無料相談は、今のあなたの気持ちをお聴かせください。<br />
+          今、失恋したばかりで苦しいなど、そんなご相談でも大丈夫です。<br />
+          コーチングって何？について、ご説明いたします。<br />
+          まずはピンと来た方、１度お話しましょう。
+        </p>
+        <div class="cta-form fade-up fade-up-delay-3" id="cta-form-wrap">
+          <form id="contact-form" action="https://formspree.io/hiroko.hishiya45@gmail.com" method="POST" onsubmit="submitForm(event)">
+            <div class="cta-form-row">
+              <input type="text" name="お名前" id="form-name" placeholder="お名前" required />
+            </div>
+            <div class="cta-form-row">
+              <input type="email" name="メールアドレス" id="form-email" placeholder="メールアドレス" required />
+            </div>
+            <div class="cta-form-row">
+              <input type="text" name="生年月日" id="form-birthday" placeholder="生年月日（例：1990/01/01）" />
+            </div>
+            <div class="cta-form-row">
+              <select id="form-concern" name="お悩み" onchange="toggleOther(this)">
+                <option value="" disabled selected>お悩みを選んでください</option>
+                <option>恋愛がうまくいかない</option>
+                <option>婚活で結果が出ない</option>
+                <option>自分に自信が持てない</option>
+                <option>理想の相手像がわからない</option>
+                <option>その他</option>
+              </select>
+            </div>
+            <div class="cta-form-row" id="other-input-row" style="display:none;">
+              <input type="text" name="その他のお悩み" id="form-other" placeholder="お悩みを具体的にご記入ください" />
+            </div>
+            <div class="cta-form-row">
+              <textarea name="事前に知っておいてほしい事" id="form-note" placeholder="私に事前に知っておいてほしい事があればご記入ください（任意）" rows="4"></textarea>
+            </div>
+            <button type="submit" class="cta-btn" id="cta-submit-btn">
+              無料相談を予約する →
+            </button>
+          </form>
+          <div class="success-msg" id="success-msg">
+            <h3>✨ ご予約ありがとうございます</h3>
+            <p>24時間以内にメールにてご連絡いたします。<br />楽しみにお待ちください 🌸</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       FOOTER
+  ============================================= -->
   <footer>
     <div class="container">
-      <div class="footer-content">
-        <div class="social-links">
-          <a href="https://www.facebook.com/hiroko.oida.98" target="_blank" rel="noopener noreferrer"
-            aria-label="Facebook">
-            <i class="fa-brands fa-facebook-f"></i>
-          </a>
-          <a href="https://www.instagram.com/hiropon_108?igsh=MTNhN2d1bXB3anZncQ==" target="_blank"
-            rel="noopener noreferrer" aria-label="Instagram">
-            <i class="fa-brands fa-instagram"></i>
-          </a>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="nav-logo">
+            Hiroko Hishiya
+            <span>菱谷ひろ子</span>
+          </div>
+          <p>自分を愛することから、全てが始まる。ライフコーチ（恋愛・婚活専門）</p>
         </div>
-        <p>&copy; 2026 Hishiya Hiroko. All Rights Reserved.</p>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 菱谷ひろ子 Hiroko Hishiya. All Rights Reserved.</p>
       </div>
     </div>
   </footer>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- =============================================
+       JAVASCRIPT
+  ============================================= -->
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    // --- Navigation scroll effect ---
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
 
-      // 1. AOS
-      try { AOS.init({ duration: 1000, easing: 'ease-out-cubic', once: true, offset: 100 }); } catch (e) { }
+    // --- Mobile menu ---
+    const toggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        toggle.classList.remove('open');
+        navLinks.classList.remove('open');
+      });
+    });
 
-      // 2. Sticky header
-      var header = document.getElementById('header');
-      window.addEventListener('scroll', function () {
-        if (header) {
-          if (window.scrollY > 50) { header.classList.add('scrolled'); }
-          else { header.classList.remove('scrolled'); }
+    // --- Scroll animations ---
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
         }
       });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-      // 3. ハンバーガーメニュー
-      var hamburger = document.getElementById('hamburger');
-      var navMenu = document.getElementById('navMenu');
-      var mobileOverlay = document.getElementById('mobileOverlay');
+    // --- Particles ---
+    const particlesContainer = document.getElementById('particles');
+    const count = 18;
+    for (let i = 0; i < count; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      const size = Math.random() * 6 + 3;
+      const left = Math.random() * 100;
+      const duration = Math.random() * 15 + 12;
+      const delay = Math.random() * 12;
+      p.style.cssText = `
+        width: ${size}px;
+        height: ${size}px;
+        left: ${left}%;
+        animation-duration: ${duration}s;
+        animation-delay: ${delay}s;
+        opacity: ${Math.random() * 0.4 + 0.1};
+      `;
+      particlesContainer.appendChild(p);
+    }
 
-      function closeMenu() {
-        if (hamburger) hamburger.classList.remove('active');
-        if (navMenu) navMenu.classList.remove('active');
-        if (mobileOverlay) mobileOverlay.classList.remove('active');
-        document.body.classList.remove('menu-open');
-      }
+    // --- その他 表示切替 ---
+    function toggleOther(select) {
+      const row = document.getElementById('other-input-row');
+      const selectedText = select.options[select.selectedIndex].text;
+      row.style.display = selectedText === 'その他' ? 'flex' : 'none';
+    }
 
-      if (hamburger) {
-        hamburger.addEventListener('click', function () {
-          hamburger.classList.toggle('active');
-          if (navMenu) navMenu.classList.toggle('active');
-          if (mobileOverlay) mobileOverlay.classList.toggle('active');
-          document.body.classList.toggle('menu-open');
+    // --- FAQ accordion ---
+    function toggleFaq(id) {
+      const item = document.getElementById(id);
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+
+    // --- Form submission via Formspree ---
+    async function submitForm(e) {
+      e.preventDefault();
+      const form = document.getElementById('contact-form');
+      const btn = document.getElementById('cta-submit-btn');
+      const success = document.getElementById('success-msg');
+
+      btn.textContent = '送信中...';
+      btn.disabled = true;
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
         });
+
+        if (response.ok) {
+          form.style.display = 'none';
+          success.style.display = 'block';
+        } else {
+          btn.textContent = '送信できませんでした。もう一度お試しください。';
+          btn.disabled = false;
+        }
+      } catch (err) {
+        btn.textContent = '送信エラーが発生しました。';
+        btn.disabled = false;
       }
-
-      if (mobileOverlay) {
-        mobileOverlay.addEventListener('click', closeMenu);
-      }
-
-      // 4. スムーススクロール — ナビメニュー専用（イベントデリゲーション）
-      if (navMenu) {
-        navMenu.addEventListener('click', function (e) {
-          var link = e.target.closest('a');
-          if (!link) return;
-          e.preventDefault();
-          e.stopPropagation();
-          var targetId = link.getAttribute('href');
-          closeMenu();
-          setTimeout(function () {
-            if (targetId === '#') {
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-              return;
-            }
-            var target = document.querySelector(targetId);
-            if (target) {
-              var headerHeight = document.getElementById('header').offsetHeight || 0;
-              var pos = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-              window.scrollTo({ top: pos, behavior: 'smooth' });
-            }
-          }, 100);
-        });
-      }
-
-      // 4b. CTAボタン等、その他ページ内リンク
-      document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-        if (navMenu && navMenu.contains(anchor)) return;
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          var targetId = this.getAttribute('href');
-          if (targetId === '#') {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            return;
-          }
-          var target = document.querySelector(targetId);
-          if (target) {
-            var headerHeight = document.getElementById('header').offsetHeight || 0;
-            var pos = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-            window.scrollTo({ top: pos, behavior: 'smooth' });
-          }
-        });
-      });
-
-      // 5. プライバシーポリシーモーダル
-      var privacyModal = document.getElementById('privacyModal');
-      var openPrivacy = document.getElementById('openPrivacy');
-      var closePrivacyBtn = document.getElementById('closePrivacy');
-
-      if (openPrivacy && privacyModal) {
-        openPrivacy.addEventListener('click', function (e) {
-          e.preventDefault();
-          privacyModal.classList.add('active');
-          document.body.style.overflow = 'hidden';
-        });
-      }
-      if (closePrivacyBtn && privacyModal) {
-        closePrivacyBtn.addEventListener('click', function () {
-          privacyModal.classList.remove('active');
-          document.body.style.overflow = '';
-        });
-      }
-      if (privacyModal) {
-        privacyModal.addEventListener('click', function (e) {
-          if (e.target === privacyModal) {
-            privacyModal.classList.remove('active');
-            document.body.style.overflow = '';
-          }
-        });
-      }
-
-      // 6. プライバシーチェックボックス
-      var privacyCheck = document.getElementById('privacyCheck');
-      var submitBtn = document.getElementById('submitBtn');
-      var contactForm = document.getElementById('contactForm');
-
-      if (privacyCheck && submitBtn) {
-        privacyCheck.addEventListener('change', function () {
-          submitBtn.disabled = !this.checked;
-        });
-      }
-      if (contactForm && privacyCheck) {
-        contactForm.addEventListener('submit', function (e) {
-          if (!privacyCheck.checked) {
-            e.preventDefault();
-            alert('プライバシーポリシーに同意してください。');
-          }
-        });
-      }
-
-      // 7. 「私の想い」続きを読む
-      var storyToggle = document.getElementById('storyToggle');
-      var storyHidden = document.getElementById('storyHidden');
-      var storyFade = document.getElementById('storyFade');
-      var storyExpanded = false;
-
-      if (storyToggle && storyHidden && storyFade) {
-        storyToggle.addEventListener('click', function () {
-          storyExpanded = !storyExpanded;
-          if (storyExpanded) {
-            storyHidden.classList.add('expanded');
-            storyFade.classList.add('no-fade');
-            storyToggle.textContent = '閉じる';
-          } else {
-            storyHidden.classList.remove('expanded');
-            storyFade.classList.remove('no-fade');
-            storyToggle.textContent = '続きを読む';
-            var storyBox = document.querySelector('.story-box');
-            if (storyBox) {
-              var headerH = document.getElementById('header').offsetHeight || 0;
-              var pos = storyBox.getBoundingClientRect().top + window.pageYOffset - headerH - 20;
-              window.scrollTo({ top: pos, behavior: 'smooth' });
-            }
-          }
-        });
-      }
-
-    });
+    }
   </script>
 </body>
-
 </html>
