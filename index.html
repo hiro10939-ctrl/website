@@ -265,11 +265,11 @@
     .hero-heading {
       font-family: 'Noto Serif JP', serif;
       font-weight: 200;
-      font-size: clamp(1.5rem, 2.4vw, 2rem);
+      font-size: clamp(1.3rem, 5vw, 2rem);
       line-height: 1.75;
       color: var(--text-dark);
       margin-bottom: 1.5rem;
-      white-space: nowrap;
+      white-space: normal;
     }
     .hero-heading .accent {
       color: var(--rose-gold);
@@ -1081,18 +1081,7 @@
       min-width: 6em;
       margin-right: 8px;
     }
-    /* スマホ: 縦積み */
-    @media (max-width: 520px) {
-      .profile-card {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 20px;
-      }
-      .profile-heading { justify-content: center; }
-      .profile-divider { max-width: 220px; margin: 0 auto 14px; }
-      .profile-location { text-align: center; }
-    }
+    /* スマホ: 縦積み ※ @media (max-width: 768px) で管理 */
     .profile-text {}
     .profile-text .section-label { text-align: left; }
     .profile-text .section-title { margin-bottom: 1.5rem; }
@@ -1440,11 +1429,15 @@
       .nav-toggle.open span:nth-child(2) { opacity: 0; }
       .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translateY(-9.5px); }
 
-      .hero-inner { padding: 0 20px; margin: 0 auto; text-align: left; padding-top: 60px; }
+      /* Hero */
+      #hero { align-items: flex-start; padding-top: 80px; min-height: auto; padding-bottom: 60px; }
+      .hero-inner { padding: 0 20px; margin: 0 auto; text-align: left; max-width: 100%; }
       .hero-en { justify-content: flex-start; }
       .hero-btns { justify-content: flex-start; }
       .hero-scroll { display: none; }
+      .hero-content { padding-top: 0; }
 
+      /* Story timeline */
       .story-timeline::before { left: 24px; }
       .timeline-item { grid-template-columns: 48px 1fr; }
       .timeline-item.right .timeline-text-left { order: initial; grid-column: 2; }
@@ -1454,13 +1447,56 @@
       .timeline-text-right { text-align: left !important; padding: 0 0 0 12px; }
       .timeline-item.right .timeline-text-left { text-align: left; padding: 0 0 0 12px; }
 
+      /* Services */
       .services-grid { grid-template-columns: 1fr; }
+      .service-card { padding: 32px 24px; }
+
+      /* Profile */
       .profile-inner { grid-template-columns: 1fr; gap: 40px; }
       .profile-image-frame { max-width: 320px; margin: 0 auto; }
+      .profile-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+      }
+      .profile-photo-sm {
+        width: 200px;
+        height: 200px;
+      }
+      .profile-heading { justify-content: center; }
+      .profile-divider { max-width: 220px; margin: 0 auto 14px; }
+      .profile-location { text-align: center; }
+      .profile-meta-label { display: block; min-width: auto; margin-right: 0; margin-bottom: 2px; }
 
+      /* Message */
+      .message-wrap { padding: 40px 24px; }
+
+      /* CTA form */
       .cta-form-row { flex-direction: column; }
+
+      /* Footer */
       .footer-inner { flex-direction: column; }
-      .section-pad { padding: 72px 0; }
+
+      /* Section padding */
+      .section-pad { padding: 60px 0; }
+      .section-pad-sm { padding: 48px 0; }
+    }
+
+    @media (max-width: 480px) {
+      /* Even smaller screens */
+      .hero-inner { padding: 0 16px; }
+      .container { padding: 0 16px; }
+      .service-card { padding: 28px 20px; }
+      .message-wrap { padding: 32px 20px; }
+      .empathy-bridge { padding: 28px 20px; }
+      .testimonial-card { padding: 28px 20px; }
+      .profile-photo-sm { width: 160px; height: 160px; }
+      .hero-heading { font-size: clamp(1.2rem, 6vw, 1.6rem); }
+      .hero-sub { font-size: 0.9rem; }
+      .hero-cert { font-size: 0.74rem; }
+      .btn-primary { padding: 14px 28px; font-size: 0.85rem; }
+      .section-pad { padding: 48px 0; }
     }
 
     /* =============================================
@@ -1534,6 +1570,7 @@
     <ul class="nav-links" id="nav-links">
       <li><a href="#empathy">こんな気持ち</a></li>
       <li><a href="#services">サービス</a></li>
+      <li><a href="#testimonials">クライアントの声</a></li>
       <li><a href="#profile">プロフィール</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#cta" class="nav-cta" id="nav-cta-btn">無料相談</a></li>
@@ -1556,7 +1593,7 @@
           <h1 class="hero-heading fade-up fade-up-delay-1">
             自分を愛せた瞬間、<br />
             現実が変わり始め、<br />
-            <span class="accent">あなたは、愛される存在になる。</span>
+            <span class="accent">あなたは、<br />愛される存在になる。</span>
           </h1>
           <p class="hero-sub fade-up fade-up-delay-2">
             自分を愛することは、<br />
