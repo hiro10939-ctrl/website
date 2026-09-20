@@ -468,10 +468,13 @@
       background: var(--cream);
       border: 1px solid rgba(196,149,106,0.15);
       border-radius: var(--radius-lg);
-      padding: 32px 28px;
+      padding: 28px 24px;
       position: relative;
       overflow: hidden;
       transition: var(--transition);
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
     }
     .empathy-card::before {
       content: '';
@@ -490,8 +493,10 @@
     }
     .empathy-card:hover::before { opacity: 1; }
     .empathy-icon {
-      font-size: 1.6rem;
-      margin-bottom: 16px;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+      line-height: 1;
     }
     .empathy-card p {
       font-size: 0.95rem;
@@ -1081,6 +1086,12 @@
       min-width: 6em;
       margin-right: 8px;
     }
+    .profile-sub-note {
+      margin-left: calc(6em + 8px);
+      font-size: 0.82rem;
+      color: var(--text-light);
+      display: inline-block;
+    }
     /* スマホ: 縦積み ※ @media (max-width: 768px) で管理 */
     .profile-text {}
     .profile-text .section-label { text-align: left; }
@@ -1450,6 +1461,7 @@
       /* Services */
       .services-grid { grid-template-columns: 1fr; }
       .service-card { padding: 32px 24px; }
+      .service-card h3 { font-size: 1.1rem; }
 
       /* Profile */
       .profile-inner { grid-template-columns: 1fr; gap: 40px; }
@@ -1468,12 +1480,14 @@
       .profile-divider { max-width: 220px; margin: 0 auto 14px; }
       .profile-location { text-align: center; }
       .profile-meta-label { display: block; min-width: auto; margin-right: 0; margin-bottom: 2px; }
+      .profile-sub-note { margin-left: 0; display: block; text-align: center; font-size: 0.8rem; }
 
       /* Message */
       .message-wrap { padding: 40px 24px; }
 
       /* CTA form */
       .cta-form-row { flex-direction: column; }
+      .cta-sub { text-align: left; font-size: 0.85rem; }
 
       /* Footer */
       .footer-inner { flex-direction: column; }
@@ -1481,6 +1495,11 @@
       /* Section padding */
       .section-pad { padding: 60px 0; }
       .section-pad-sm { padding: 48px 0; }
+
+      /* Empathy bridge */
+      .empathy-bridge { text-align: left; }
+      .empathy-bridge-body { font-size: 1rem; }
+      .empathy-bridge-question { font-size: 1.1rem; }
     }
 
     @media (max-width: 480px) {
@@ -1698,7 +1717,7 @@
         <div class="service-card fade-up fade-up-delay-1">
           <div class="service-number">02</div>
           <span class="service-label">Love &amp; Marriage Advice</span>
-          <h3>ライフコーチング×恋愛・婚活アドバイス<br />〜幸せなご縁を引き寄せる〜</h3>
+          <h3>ライフコーチング×<br />恋愛・婚活アドバイス<br />〜幸せなご縁を引き寄せる〜</h3>
           <p>あなたの価値観や望む未来を大切にしながら、恋愛・婚活における具体的なアドバイスをお伝えします。正解を押し付けるのではなく、私自身の経験や学びを参考として共有しながら、あなたに合った選択ができるようサポートします。</p>
           <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:20px;flex-wrap:wrap;">
             <span style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--rose-gold);font-weight:300;">90 min〜</span>
@@ -1821,7 +1840,7 @@
               </p>
               <p class="profile-meta-row">
                 <span class="profile-meta-label">叶えたいこと</span>「百花繚乱な世界」<br>
-                <span style="margin-left:calc(6em + 8px);font-size:0.82rem;color:var(--text-light);">〜それぞれの個性が調和しながら美しく咲き誇っている世界〜</span>
+                <span class="profile-sub-note">〜それぞれの個性が調和しながら美しく咲き誇っている世界〜</span>
               </p>
             </div>
           </div>
@@ -1967,8 +1986,10 @@
           <span class="accent">まずはお話しませんか？</span>
         </h2>
         <p class="cta-sub fade-up fade-up-delay-2">
-          初回60分の無料相談は、今のあなたの気持ちをお聴かせください。<br />
-          今、失恋したばかりで苦しいなど、そんなご相談でも大丈夫です。<br />
+          初回60分の無料相談は、今のあなたの<br />
+          気持ちをお聴かせください。<br />
+          今、失恋したばかりで苦しいなど、<br />
+          そんなご相談でも大丈夫です。<br />
           コーチングって何？について、ご説明いたします。<br />
           まずはピンと来た方、１度お話しましょう。
         </p>
