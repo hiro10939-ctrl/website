@@ -1560,9 +1560,19 @@
       .section-pad-sm { padding: 48px 0; }
 
       /* Empathy bridge */
-      .empathy-bridge { text-align: center; }
-      .empathy-bridge-body { font-size: 1rem; line-height: 2.2; }
-      .empathy-bridge-question { font-size: 1.1rem; }
+      .empathy-bridge {
+        padding: 30px 16px;
+        text-align: center;
+      }
+      .empathy-bridge-body {
+        font-size: 0.92rem;
+        line-height: 2.1;
+        margin-bottom: 1.2rem;
+      }
+      .empathy-bridge-question {
+        font-size: 1.05rem;
+        line-height: 1.8;
+      }
 
       /* Section titles */
       .section-title { font-size: clamp(1.4rem, 5vw, 2rem); text-align: center; }
@@ -1574,7 +1584,7 @@
       .container { padding: 0 16px; }
       .service-card { padding: 28px 20px; }
       .message-wrap { padding: 32px 20px; }
-      .empathy-bridge { padding: 28px 20px; }
+      .empathy-bridge { padding: 24px 12px; }
       .testimonial-card { padding: 28px 20px; }
       .profile-photo-sm { width: 160px; height: 160px; }
       .hero-heading { font-size: clamp(1.2rem, 5.5vw, 1.5rem); line-height: 1.9; }
@@ -1583,8 +1593,8 @@
       .btn-primary { padding: 14px 28px; font-size: 0.85rem; }
       .section-pad { padding: 48px 0; }
       .section-title { font-size: clamp(1.2rem, 5vw, 1.6rem); }
-      .empathy-bridge-body { font-size: 0.95rem; }
-      .empathy-bridge-question { font-size: 1rem; }
+      .empathy-bridge-body { font-size: 0.86rem; line-height: 2.1; }
+      .empathy-bridge-question { font-size: 0.98rem; line-height: 1.8; }
       .cta-heading { font-size: clamp(1.3rem, 5vw, 1.7rem); }
       .cta-sub { font-size: 0.85rem; line-height: 2; }
       .profile-body { font-size: 0.88rem; line-height: 2; }
@@ -1613,7 +1623,7 @@
     ============================================= */
     .empathy-bridge {
       margin-top: 40px;
-      padding: 44px 48px;
+      padding: 44px 40px;
       background: var(--cream);
       border: 1px solid rgba(196,149,106,0.15);
       border-top: 3px solid var(--rose-gold);
@@ -1622,30 +1632,20 @@
     }
     .empathy-bridge-body {
       font-family: 'Noto Serif JP', serif;
-      font-size: clamp(1.3rem, 2.2vw, 1.4rem);
+      font-size: clamp(1.02rem, 1.8vw, 1.2rem);
       color: var(--text-dark);
-      line-height: 2;
+      line-height: 2.1;
       font-weight: 300;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.4rem;
     }
     .empathy-bridge-question {
       font-family: 'Noto Serif JP', serif;
-      font-size: clamp(1.4rem, 3vw, 1.7rem);
+      font-size: clamp(1.15rem, 2.2vw, 1.4rem);
       color: var(--rose-gold);
-      font-weight: 300;
+      font-weight: 400;
       line-height: 1.8;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0;
       font-style: normal;
-    }
-    .empathy-bridge-cta {
-      font-family: 'Noto Serif JP', serif;
-      font-size: clamp(1.3rem, 2.2vw, 1.4rem);
-      color: var(--rose-gold);
-      font-weight: 300;
-      line-height: 2;
-    }
-    @media (max-width: 768px) {
-      .empathy-bridge { padding: 32px 24px; }
     }
 
   </style>
@@ -1760,11 +1760,11 @@
       </div>
       <div class="empathy-bridge fade-up">
         <p class="empathy-bridge-body">
-          <span class="ib">これは、私自身が長年悩んできた気持ちと、</span><br class="br-pc" />
-          <span class="ib">これまで相談を受けてきた多くの方の気持ちです。</span>
+          <span class="ib">これは、私自身が</span><span class="ib">長年悩んできた気持ちと、</span><br class="br-pc" />
+          <span class="ib">これまで相談を受けてきた</span><span class="ib">多くの方の気持ちです。</span>
         </p>
         <p class="empathy-bridge-question">
-          <span class="ib">あなたはどんなところが</span><span class="ib">重なりますか？</span>
+          <span class="ib">あなたはどんなところが</span><br class="br-sp" /><span class="ib">重なりますか？</span>
         </p>
       </div>
     </div>
@@ -1942,7 +1942,7 @@
             でも、そんな人生はあまりにも苦しい。「このままでは嫌だ。もっと幸せになりたい」——そう思った私は、自分自身と向き合うことを始めました。そこで気づいたのは、<strong>私はずっと「誰かに愛されること」を求める一方で、自分自身を大切にしていなかったということ。</strong>そして心のどこかで、「私なんかが幸せになってはいけない」と、幸せになることに自分でブレーキをかけていたことでした。
           </p>
           <p class="profile-body">
-            少しずつ自分の気持ちに耳を傾け、自分を認め、大切にすることを続けていくうちに、見える景色が変わっていきました。<span style="color:#D4789A;font-weight:500;">そして自然な流れの中で今の夫と出会い、結婚。今では二人の子どもにも恵まれ、穏やかで幸せな毎日を過ごしています。</span>
+            少しずつ自分の気持ちに耳を傾け、自分を認め、大切にしていくうちに、見える景色が変わっていきました。「ここまで独身でいたのだから、妥協せず心から望む理想を描こう」——そう決めた私に、周囲からは「そんな素敵な人、絶対にいないよ」と言われることもありました。それでも私は惑わされず、<span style="color:#D4789A;font-weight:500;">自分の想いを大切にして過ごしました。</span>そうして間もなく、思いがけない場所で、その出会いは突然訪れました。<span style="color:#D4789A;font-weight:500;">出会ったのは、まさに私の理想以上の人。それが、今の夫です。</span>
           </p>
           <p class="profile-body">
             <strong>「自分を大切にすること」こそが、愛される第一歩。</strong>あなたの中にすでにある魅力に気づき、それを大切にしていくことから、人生は変わり始めます。そのそばに寄り添う伴走者でありたい——それが、私がこの仕事をしている理由です。
