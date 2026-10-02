@@ -43,7 +43,14 @@
       color: var(--text-dark);
       background: var(--cream);
       overflow-x: hidden;
-      line-height: 1.8;
+      line-height: 1.85;
+      letter-spacing: 0.04em;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-feature-settings: "palt" 1;
+      word-break: normal;
+      overflow-wrap: break-word;
+      line-break: strict;
     }
     img { max-width: 100%; display: block; }
     a { text-decoration: none; color: inherit; }
@@ -67,8 +74,28 @@
     .fade-up-delay-5 { transition-delay: 0.5s; }
 
     /* =============================================
-       UTILITY
+       UTILITY & TYPOGRAPHY
     ============================================= */
+    /* 文節単位の折り返し保持（単語の途中分裂を防止） */
+    .ib {
+      display: inline-block;
+      vertical-align: top;
+    }
+    /* PC専用改行 / スマホ専用改行 */
+    .br-pc {
+      display: inline;
+    }
+    .br-sp {
+      display: none;
+    }
+    .service-subtitle {
+      display: block;
+      font-size: 0.92rem;
+      font-weight: 300;
+      margin-top: 6px;
+      opacity: 0.85;
+    }
+
     .section-label {
       font-family: 'Cormorant Garamond', serif;
       font-size: 0.8rem;
@@ -276,12 +303,22 @@
       font-weight: 400;
     }
     .hero-sub {
-      font-size: clamp(0.9rem, 1.5vw, 1rem);
+      font-size: clamp(0.92rem, 1.5vw, 1.02rem);
       color: var(--text-dark);
-      line-height: 2;
-      margin-bottom: 1.5rem;
+      line-height: 2.1;
+      margin-bottom: 2rem;
       font-weight: 400;
       text-shadow: 0 1px 4px rgba(255,255,255,0.7);
+    }
+    .hero-sub-block {
+      margin-bottom: 1.25em;
+    }
+    .hero-sub-block:last-child {
+      margin-bottom: 0;
+    }
+    .hero-sub-block.highlight {
+      font-weight: 500;
+      color: var(--text-dark);
     }
     .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
     .btn-primary {
@@ -1257,13 +1294,19 @@
     }
     .cta-heading .accent { color: var(--rose-light); font-weight: 400; }
     .cta-sub {
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.55);
-      line-height: 2;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.78);
+      line-height: 2.1;
       margin-bottom: 2.5rem;
-      max-width: 520px;
+      max-width: 580px;
       margin-left: auto;
       margin-right: auto;
+    }
+    .cta-sub-p {
+      margin-bottom: 0.9em;
+    }
+    .cta-sub-p:last-child {
+      margin-bottom: 0;
     }
     .cta-note {
       font-size: 0.78rem;
@@ -1440,10 +1483,16 @@
       .nav-toggle.open span:nth-child(2) { opacity: 0; }
       .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translateY(-9.5px); }
 
+      /* PC専用改行を非表示、スマホ専用改行を表示 */
+      .br-pc { display: none !important; }
+      .br-sp { display: inline !important; }
+
       /* Hero */
       #hero { align-items: flex-start; padding-top: 80px; min-height: auto; padding-bottom: 60px; }
       .hero-inner { padding: 0 20px; margin: 0 auto; text-align: left; max-width: 100%; }
       .hero-en { justify-content: flex-start; }
+      .hero-heading { font-size: clamp(1.4rem, 6vw, 1.8rem); line-height: 1.8; }
+      .hero-sub { font-size: 0.92rem; line-height: 2.2; }
       .hero-btns { justify-content: flex-start; }
       .hero-scroll { display: none; }
       .hero-content { padding-top: 0; }
@@ -1461,7 +1510,13 @@
       /* Services */
       .services-grid { grid-template-columns: 1fr; }
       .service-card { padding: 32px 24px; }
-      .service-card h3 { font-size: 1.1rem; }
+      .service-card h3 { font-size: 1.1rem; line-height: 1.6; }
+      .service-card p { font-size: 0.88rem; line-height: 2; }
+
+      /* Testimonials */
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .testimonial-card { padding: 32px 24px; }
+      .testimonial-text { font-size: 0.88rem; line-height: 2.1; }
 
       /* Profile */
       .profile-inner { grid-template-columns: 1fr; gap: 40px; }
@@ -1481,13 +1536,21 @@
       .profile-location { text-align: center; }
       .profile-meta-label { display: block; min-width: auto; margin-right: 0; margin-bottom: 2px; }
       .profile-sub-note { margin-left: 0; display: block; text-align: center; font-size: 0.8rem; }
+      .profile-body { font-size: 0.9rem; line-height: 2; text-align: left; }
+      .profile-text .section-title { text-align: center; }
+      .profile-text .gold-line { margin: 1rem auto; }
 
       /* Message */
       .message-wrap { padding: 40px 24px; }
 
       /* CTA form */
       .cta-form-row { flex-direction: column; }
-      .cta-sub { text-align: left; font-size: 0.85rem; }
+      .cta-sub { text-align: center; font-size: 0.88rem; line-height: 2.1; }
+      .cta-heading { font-size: clamp(1.5rem, 5vw, 2rem); }
+
+      /* FAQ */
+      .faq-q-text p { font-size: 0.9rem; }
+      .faq-answer-inner p { font-size: 0.85rem; line-height: 2; }
 
       /* Footer */
       .footer-inner { flex-direction: column; }
@@ -1497,9 +1560,12 @@
       .section-pad-sm { padding: 48px 0; }
 
       /* Empathy bridge */
-      .empathy-bridge { text-align: left; }
-      .empathy-bridge-body { font-size: 1rem; }
+      .empathy-bridge { text-align: center; }
+      .empathy-bridge-body { font-size: 1rem; line-height: 2.2; }
       .empathy-bridge-question { font-size: 1.1rem; }
+
+      /* Section titles */
+      .section-title { font-size: clamp(1.4rem, 5vw, 2rem); text-align: center; }
     }
 
     @media (max-width: 480px) {
@@ -1511,11 +1577,18 @@
       .empathy-bridge { padding: 28px 20px; }
       .testimonial-card { padding: 28px 20px; }
       .profile-photo-sm { width: 160px; height: 160px; }
-      .hero-heading { font-size: clamp(1.2rem, 6vw, 1.6rem); }
-      .hero-sub { font-size: 0.9rem; }
+      .hero-heading { font-size: clamp(1.2rem, 5.5vw, 1.5rem); line-height: 1.9; }
+      .hero-sub { font-size: 0.88rem; line-height: 2.1; }
       .hero-cert { font-size: 0.74rem; }
       .btn-primary { padding: 14px 28px; font-size: 0.85rem; }
       .section-pad { padding: 48px 0; }
+      .section-title { font-size: clamp(1.2rem, 5vw, 1.6rem); }
+      .empathy-bridge-body { font-size: 0.95rem; }
+      .empathy-bridge-question { font-size: 1rem; }
+      .cta-heading { font-size: clamp(1.3rem, 5vw, 1.7rem); }
+      .cta-sub { font-size: 0.85rem; line-height: 2; }
+      .profile-body { font-size: 0.88rem; line-height: 2; }
+      .empathy-card p { font-size: 0.88rem; }
     }
 
     /* =============================================
@@ -1574,6 +1647,7 @@
     @media (max-width: 768px) {
       .empathy-bridge { padding: 32px 24px; }
     }
+
   </style>
 </head>
 <body>
@@ -1610,22 +1684,33 @@
         <div class="hero-text">
           <p class="hero-cert fade-up fade-up-delay-1">米国CTI認定コーチ CPCC（恋愛・婚活専門）<span>Certified Professional Co-Active Coach</span></p>
           <h1 class="hero-heading fade-up fade-up-delay-1">
-            自分を愛せた瞬間、<br />
-            現実が変わり始め、<br />
-            <span class="accent">あなたは、<br />愛される存在になる。</span>
+            <span class="ib">自分を愛せた瞬間、</span><br />
+            <span class="ib">現実が変わり始め、</span><br />
+            <span class="accent">
+              <span class="ib">あなたは、</span><br class="br-sp" />
+              <span class="ib">愛される存在になる。</span>
+            </span>
           </h1>
-          <p class="hero-sub fade-up fade-up-delay-2">
-            自分を愛することは、<br />
-            自分に甘くなることでも、<br />
-            自分を正当化し続けることでもない。<br /><br />
-            自分を愛するとは、<br />
-            自分を深く知り、理解すること。<br />
-            まず、そこから始めましょう。<br /><br />
-            今は信じられなくていい。<br />
-            あなたが幸せになれることを、<br />
-            私は知っています。<br /><br />
-            その一歩を、一緒に踏み出しませんか？
-          </p>
+          <div class="hero-sub fade-up fade-up-delay-2">
+            <p class="hero-sub-block">
+              <span class="ib">自分を愛することは、</span><br class="br-pc" />
+              <span class="ib">自分に甘くなることでも、</span><br class="br-pc" />
+              <span class="ib">自分を正当化し続けることでもない。</span>
+            </p>
+            <p class="hero-sub-block">
+              <span class="ib">自分を愛するとは、</span><br class="br-pc" />
+              <span class="ib">自分を深く知り、</span><span class="ib">理解すること。</span><br class="br-pc" />
+              <span class="ib">まず、そこから始めましょう。</span>
+            </p>
+            <p class="hero-sub-block">
+              <span class="ib">今は信じられなくていい。</span><br class="br-pc" />
+              <span class="ib">あなたが幸せになれることを、</span><br class="br-pc" />
+              <span class="ib">私は知っています。</span>
+            </p>
+            <p class="hero-sub-block highlight">
+              <span class="ib">その一歩を、</span><span class="ib">一緒に踏み出しませんか？</span>
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -1643,42 +1728,44 @@
       <div class="empathy-header">
         <span class="section-label fade-up">For You</span>
         <h2 class="section-title fade-up fade-up-delay-1">
-          こんな気持ち、<br />ありませんか？
+          <span class="ib">こんな気持ち、</span><br class="br-sp" /><span class="ib">ありませんか？</span>
         </h2>
         <div class="gold-line fade-up fade-up-delay-2"></div>
       </div>
       <div class="empathy-grid">
         <div class="empathy-card fade-up fade-up-delay-1">
           <div class="empathy-icon">💔</div>
-          <p>いつも好きになる相手には、すでにパートナーがいる。<br />なぜかそういう人を好きになってしまう。</p>
+          <p><span class="ib">いつも好きになる相手には、</span><span class="ib">すでにパートナーがいる。</span><br class="br-pc" /><span class="ib">なぜかそういう人を</span><span class="ib">好きになってしまう。</span></p>
         </div>
         <div class="empathy-card fade-up fade-up-delay-2">
           <div class="empathy-icon">🪞</div>
-          <p>「私なんて…」が、いつの間にか口癖になっていた。</p>
+          <p><span class="ib">「私なんて…」が、</span><span class="ib">いつの間にか口癖になっていた。</span></p>
         </div>
         <div class="empathy-card fade-up fade-up-delay-3">
           <div class="empathy-icon">🌸</div>
-          <p>嫌われたくない一心で、気づけばいつも相手に合わせてしまう。</p>
+          <p><span class="ib">嫌われたくない一心で、</span><span class="ib">気づけばいつも相手に合わせてしまう。</span></p>
         </div>
         <div class="empathy-card fade-up fade-up-delay-4">
           <div class="empathy-icon">💭</div>
-          <p>結婚相手としての条件は申し分ない。でも気持ちが動かない。</p>
+          <p><span class="ib">結婚相手としての条件は申し分ない。</span><span class="ib">でも気持ちが動かない。</span></p>
         </div>
         <div class="empathy-card fade-up fade-up-delay-3">
           <div class="empathy-icon">⏳</div>
-          <p>年齢を重ねるごとに、いつの間にか理想を描けなくなった。</p>
+          <p><span class="ib">年齢を重ねるごとに、</span><span class="ib">いつの間にか理想を描けなくなった。</span></p>
         </div>
         <div class="empathy-card fade-up fade-up-delay-4">
           <div class="empathy-icon">🌙</div>
-          <p>寂しさと向き合わない為に、今この瞬間が楽しければ良いと現実逃避・・・</p>
+          <p><span class="ib">寂しさと向き合わない為に、</span><span class="ib">今この瞬間が楽しければ良いと</span><span class="ib">現実逃避…</span></p>
         </div>
       </div>
       <div class="empathy-bridge fade-up">
         <p class="empathy-bridge-body">
-          これは、私自身が長年悩んできた気持ちと、<br />
-          これまで相談を受けてきた多くの方の気持ちです。
+          <span class="ib">これは、私自身が長年悩んできた気持ちと、</span><br class="br-pc" />
+          <span class="ib">これまで相談を受けてきた多くの方の気持ちです。</span>
         </p>
-        <p class="empathy-bridge-question">あなたはどんなところが重なりますか？</p>
+        <p class="empathy-bridge-question">
+          <span class="ib">あなたはどんなところが</span><span class="ib">重なりますか？</span>
+        </p>
       </div>
     </div>
   </section>
@@ -1692,7 +1779,7 @@
       <div class="services-header">
         <span class="section-label fade-up">Services</span>
         <h2 class="section-title fade-up fade-up-delay-1">
-          あなたの「今」に合わせた<br /><span>完全個別サポート。</span>
+          <span class="ib">あなたの「今」に合わせた</span><br class="br-sp" /><span><span class="ib">完全個別サポート。</span></span>
         </h2>
         <div class="gold-line fade-up fade-up-delay-2"></div>
       </div>
@@ -1700,7 +1787,7 @@
         <div class="service-card featured fade-up">
           <div class="service-number">01</div>
           <span class="service-label">Life Coaching</span>
-          <h3>ライフコーチング<br />〜人生をより豊かにする〜</h3>
+          <h3><span class="ib">ライフコーチング</span><span class="service-subtitle">〜人生をより豊かにする〜</span></h3>
           <p>日々の忙しさの中で見失いがちな「本当の自分の気持ち」。対話を通じて、あなたの想いや価値観、理想の未来を丁寧に紐解いていきます。答えは外側にあるのではなく、すでにあなたの内側にあります。</p>
           <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:20px;flex-wrap:wrap;">
             <span style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:rgba(232,197,168,0.9);font-weight:300;">60 min〜</span>
@@ -1717,7 +1804,7 @@
         <div class="service-card fade-up fade-up-delay-1">
           <div class="service-number">02</div>
           <span class="service-label">Love &amp; Marriage Advice</span>
-          <h3>ライフコーチング×<br />恋愛・婚活アドバイス<br />〜幸せなご縁を引き寄せる〜</h3>
+          <h3><span class="ib">ライフコーチング×</span><span class="ib">恋愛・婚活アドバイス</span><span class="service-subtitle">〜幸せなご縁を引き寄せる〜</span></h3>
           <p>あなたの価値観や望む未来を大切にしながら、恋愛・婚活における具体的なアドバイスをお伝えします。正解を押し付けるのではなく、私自身の経験や学びを参考として共有しながら、あなたに合った選択ができるようサポートします。</p>
           <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:20px;flex-wrap:wrap;">
             <span style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--rose-gold);font-weight:300;">90 min〜</span>
@@ -1765,7 +1852,7 @@
       <div class="testimonials-header">
         <span class="section-label fade-up">Voices</span>
         <h2 class="section-title fade-up fade-up-delay-1">
-          変わっていった、<br /><span>クライアントの声</span>
+          <span class="ib">変わっていった、</span><br class="br-sp" /><span><span class="ib">クライアントの声</span></span>
         </h2>
         <div class="gold-line fade-up fade-up-delay-2"></div>
       </div>
@@ -1846,7 +1933,7 @@
           </div>
         </div>
         <div class="profile-text fade-up fade-up-delay-1">
-          <h2 class="section-title"><span>なぜ、この仕事をするのか</span></h2>
+          <h2 class="section-title"><span><span class="ib">なぜ、</span><span class="ib">この仕事をするのか</span></span></h2>
           <div class="gold-line"></div>
           <p class="profile-body">
             かつての私は、恋愛に何度も傷つき、「私には魅力がないのかもしれない」と思っていました。好きになる人とはうまくいかず、相手の顔色ばかりを気にして、自分はいつも後回し。幸せを感じても長くは続かない、そう思うようになっていました。
@@ -1872,7 +1959,7 @@
     <div class="container">
       <div class="faq-header">
         <span class="section-label fade-up">FAQ</span>
-        <h2 class="section-title fade-up fade-up-delay-1">よくある<span>ご質問</span></h2>
+        <h2 class="section-title fade-up fade-up-delay-1"><span class="ib">よくある</span><span><span class="ib">ご質問</span></span></h2>
         <div class="gold-line fade-up fade-up-delay-2"></div>
       </div>
       <div class="faq-list">
@@ -1983,16 +2070,20 @@
       <div class="cta-inner">
         <span class="cta-en fade-up">First Step</span>
         <h2 class="cta-heading fade-up fade-up-delay-1">
-          <span class="accent">まずはお話しませんか？</span>
+          <span class="accent"><span class="ib">まずはお話</span><span class="ib">しませんか？</span></span>
         </h2>
-        <p class="cta-sub fade-up fade-up-delay-2">
-          初回60分の無料相談は、今のあなたの<br />
-          気持ちをお聴かせください。<br />
-          今、失恋したばかりで苦しいなど、<br />
-          そんなご相談でも大丈夫です。<br />
-          コーチングって何？について、ご説明いたします。<br />
-          まずはピンと来た方、１度お話しましょう。
-        </p>
+        <div class="cta-sub fade-up fade-up-delay-2">
+          <p class="cta-sub-p">
+            <span class="ib">初回60分の無料相談は、</span><span class="ib">今のあなたの気持ちをお聴かせください。</span>
+          </p>
+          <p class="cta-sub-p">
+            <span class="ib">「今、失恋したばかりで苦しい」など、</span><span class="ib">そんなご相談でも大丈夫です。</span>
+          </p>
+          <p class="cta-sub-p">
+            <span class="ib">コーチングについて丁寧にご説明いたします。</span><br class="br-pc" />
+            <span class="ib">まずはピンと来た方、</span><span class="ib">一度お話ししましょう。</span>
+          </p>
+        </div>
         <div class="cta-form fade-up fade-up-delay-3" id="cta-form-wrap">
         <form id="contact-form" action="https://ssgform.com/s/6wojUpOmlKJF" method="POST">
             <div class="cta-form-row">
@@ -2032,6 +2123,9 @@
       </div>
     </div>
   </section>
+
+
+
 
   <!-- =============================================
        FOOTER
